@@ -1,0 +1,1 @@
+INSERT INTO `tb_prj_opt_status` (`id`, `project_name`, `phase_no`, `project_code`, `prjexec_status`, `recvRatio`, `progress`, `project_manager`, `del_flag`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`, `dept_id`, `user_id`) VALUES (2, '#', '#', '#', '正常进行', 100.00, 100.00, '#', '0', '', '2025-4-7 16:45:38', '', NULL, NULL, NULL, NULL);

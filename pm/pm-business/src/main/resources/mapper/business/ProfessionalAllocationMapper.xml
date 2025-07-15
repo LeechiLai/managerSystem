@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.ProfessionalAllocationMapper">
+
+    <resultMap type="ProfessionalAllocation" id="ProfessionalAllocationResult">
+        <result property="id"    column="id"    />
+        <result property="prjId"    column="prj_id"    />
+        <result property="profession"    column="profession"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="projectNo"    column="project_no"    />
+        <result property="phaseNo"    column="phase_no"    />
+        <result property="def1"    column="def1"    />
+        <result property="def2"    column="def2"    />
+        <result property="def3"    column="def3"    />
+        <result property="def4"    column="def4"    />
+        <result property="def5"    column="def5"    />
+        <result property="def6"    column="def6"    />
+        <result property="def7"    column="def7"    />
+        <result property="def8"    column="def8"    />
+        <result property="def9"    column="def9"    />
+        <result property="def10"    column="def10"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <resultMap id="ProfessionalAllocationProfessionalAllocationBResult" type="ProfessionalAllocation" extends="ProfessionalAllocationResult">
+        <collection property="professionalAllocationBList" notNullColumn="sub_id" javaType="java.util.List" resultMap="ProfessionalAllocationBResult" />
+    </resultMap>
+
+    <resultMap type="ProfessionalAllocationB" id="ProfessionalAllocationBResult">
+        <result property="id"    column="sub_id"    />
+        <result property="headId"    column="sub_head_id"    />
+        <result property="prjId"    column="sub_prj_id"    />
+        <result property="itemId"    column="sub_item_id"    />
+        <result property="itemNo"    column="sub_item_no"    />
+        <result property="itemName"    column="sub_item_name"    />
+        <result property="itemWeight"    column="sub_item_weight"    />
+        <result property="proResp"    column="sub_pro_resp"    />
+        <result property="eim"    column="sub_eim"    />
+        <result property="overallPlan"    column="sub_overall_plan"    />
+        <result property="checker"    column="sub_checker"    />
+        <result property="reviewer"    column="sub_reviewer"    />
+        <result property="pipeReview"    column="sub_pipe_review"    />
+        <result property="approval"    column="sub_approval"    />
+        <result property="designGuidance"    column="sub_design_guidance"    />
+        <result property="design1"    column="sub_design1"    />
+        <result property="design2"    column="sub_design2"    />
+        <result property="design3"    column="sub_design3"    />
+        <result property="design4"    column="sub_design4"    />
+        <result property="design5"    column="sub_design5"    />
+        <result property="design6"    column="sub_design6"    />
+        <result property="design7"    column="sub_design7"    />
+        <result property="design8"    column="sub_design8"    />
+        <result property="design9"    column="sub_design9"    />
+        <result property="design10"    column="sub_design10"    />
+        <result property="design11"    column="sub_design11"    />
+        <result property="design12"    column="sub_design12"    />
+        <result property="design13"    column="sub_design13"    />
+        <result property="design14"    column="sub_design14"    />
+        <result property="design15"    column="sub_design15"    />
+        <result property="design16"    column="sub_design16"    />
+        <result property="design17"    column="sub_design17"    />
+        <result property="design18"    column="sub_design18"    />
+        <result property="design19"    column="sub_design19"    />
+        <result property="design20"    column="sub_design20"    />
+        <result property="procurementSupport"    column="sub_procurement_support"    />
+        <result property="consultant"    column="sub_consultant"    />
+        <result property="proRespPct"    column="sub_pro_resp_pct"    />
+        <result property="eimPct"    column="sub_eim_pct"    />
+        <result property="overallPlanPct"    column="sub_overall_plan_pct"    />
+        <result property="checkerPct"    column="sub_checker_pct"    />
+        <result property="reviewerPct"    column="sub_reviewer_pct"    />
+        <result property="pipeReviewPct"    column="sub_pipe_review_pct"    />
+        <result property="approvalPct"    column="sub_approval_pct"    />
+        <result property="designGuidancePct"    column="sub_design_guidance_pct"    />
+        <result property="design1Pct"    column="sub_design1_pct"    />
+        <result property="design2Pct"    column="sub_design2_pct"    />
+        <result property="design3Pct"    column="sub_design3_pct"    />
+        <result property="design4Pct"    column="sub_design4_pct"    />
+        <result property="design5Pct"    column="sub_design5_pct"    />
+        <result property="design6Pct"    column="sub_design6_pct"    />
+        <result property="design7Pct"    column="sub_design7_pct"    />
+        <result property="design8Pct"    column="sub_design8_pct"    />
+        <result property="design9Pct"    column="sub_design9_pct"    />
+        <result property="design10Pct"    column="sub_design10_pct"    />
+        <result property="design11Pct"    column="sub_design11_pct"    />
+        <result property="design12Pct"    column="sub_design12_pct"    />
+        <result property="design13Pct"    column="sub_design13_pct"    />
+        <result property="design14Pct"    column="sub_design14_pct"    />
+        <result property="design15Pct"    column="sub_design15_pct"    />
+        <result property="design16Pct"    column="sub_design16_pct"    />
+        <result property="design17Pct"    column="sub_design17_pct"    />
+        <result property="design18Pct"    column="sub_design18_pct"    />
+        <result property="design19Pct"    column="sub_design19_pct"    />
+        <result property="design20Pct"    column="sub_design20_pct"    />
+        <result property="procurementSupportPct"    column="sub_procurement_support_pct"    />
+        <result property="consultantPct"    column="sub_consultant_pct"    />
+        <result property="final1Pct"    column="sub_final1_pct"    />
+        <result property="final2Pct"    column="sub_final2_pct"    />
+        <result property="final3Pct"    column="sub_final3_pct"    />
+        <result property="final4Pct"    column="sub_final4_pct"    />
+        <result property="final5Pct"    column="sub_final5_pct"    />
+        <result property="final6Pct"    column="sub_final6_pct"    />
+        <result property="final7Pct"    column="sub_final7_pct"    />
+        <result property="final8Pct"    column="sub_final8_pct"    />
+        <result property="final9Pct"    column="sub_final9_pct"    />
+        <result property="final10Pct"    column="sub_final10_pct"    />
+        <result property="final11Pct"    column="sub_final11_pct"    />
+        <result property="final12Pct"    column="sub_final12_pct"    />
+        <result property="final13Pct"    column="sub_final13_pct"    />
+        <result property="final14Pct"    column="sub_final14_pct"    />
+        <result property="final15Pct"    column="sub_final15_pct"    />
+        <result property="final16Pct"    column="sub_final16_pct"    />
+        <result property="final17Pct"    column="sub_final17_pct"    />
+        <result property="final18Pct"    column="sub_final18_pct"    />
+        <result property="final19Pct"    column="sub_final19_pct"    />
+        <result property="final20Pct"    column="sub_final20_pct"    />
+        <result property="progress1"    column="sub_progress1"    />
+        <result property="progress2"    column="sub_progress2"    />
+        <result property="progress3"    column="sub_progress3"    />
+        <result property="progress4"    column="sub_progress4"    />
+        <result property="progress5"    column="sub_progress5"    />
+        <result property="progress6"    column="sub_progress6"    />
+        <result property="progress7"    column="sub_progress7"    />
+        <result property="progress8"    column="sub_progress8"    />
+        <result property="progress9"    column="sub_progress9"    />
+        <result property="progress10"    column="sub_progress10"    />
+        <result property="progress11"    column="sub_progress11"    />
+        <result property="progress12"    column="sub_progress12"    />
+        <result property="progress13"    column="sub_progress13"    />
+        <result property="progress14"    column="sub_progress14"    />
+        <result property="progress15"    column="sub_progress15"    />
+        <result property="progress16"    column="sub_progress16"    />
+        <result property="progress17"    column="sub_progress17"    />
+        <result property="progress18"    column="sub_progress18"    />
+        <result property="progress19"    column="sub_progress19"    />
+        <result property="progress20"    column="sub_progress20"    />
+        <result property="def1"    column="sub_def1"    />
+        <result property="def2"    column="sub_def2"    />
+        <result property="def3"    column="sub_def3"    />
+        <result property="def4"    column="sub_def4"    />
+        <result property="def5"    column="sub_def5"    />
+        <result property="def6"    column="sub_def6"    />
+        <result property="def7"    column="sub_def7"    />
+        <result property="def8"    column="sub_def8"    />
+        <result property="def9"    column="sub_def9"    />
+        <result property="def10"    column="sub_def10"    />
+        <result property="delFlag"    column="sub_del_flag"    />
+        <result property="createBy"    column="sub_create_by"    />
+        <result property="createTime"    column="sub_create_time"    />
+        <result property="updateBy"    column="sub_update_by"    />
+        <result property="updateTime"    column="sub_update_time"    />
+        <result property="remark"    column="sub_remark"    />
+        <result property="deptId"    column="sub_dept_id"    />
+        <result property="userId"    column="sub_user_id"    />
+    </resultMap>
+
+    <sql id="selectProfessionalAllocationVo">
+        select id, prj_id, profession, project_name, project_no, phase_no, def1, def2, def3, def4, def5, def6, def7, def8, def9, def10, del_flag, create_by, create_time, update_by, update_time, remark, dept_id, user_id from tb_professional_allocation
+    </sql>
+
+    <select id="selectProfessionalAllocationList" parameterType="ProfessionalAllocation" resultMap="ProfessionalAllocationResult">
+        <include refid="selectProfessionalAllocationVo"/>
+        <where>
+            <if test="profession != null  and profession != ''"> and profession = #{profession}</if>
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="projectNo != null  and projectNo != ''"> and project_no = #{projectNo}</if>
+            <if test="phaseNo != null  and phaseNo != ''"> and phase_no = #{phaseNo}</if>
+        </where>
+    </select>
+
+    <select id="selectProfessionalAllocationById" parameterType="Long" resultMap="ProfessionalAllocationProfessionalAllocationBResult">
+        select a.id, a.prj_id, a.profession, a.project_name, a.project_no, a.phase_no, a.def1, a.def2, a.def3, a.def4, a.def5, a.def6, a.def7, a.def8, a.def9, a.def10, a.del_flag, a.create_by, a.create_time, a.update_by, a.update_time, a.remark, a.dept_id, a.user_id,
+ b.id as sub_id, b.head_id as sub_head_id, b.prj_id as sub_prj_id, b.item_id as sub_item_id, b.item_no as sub_item_no, b.item_name as sub_item_name, b.item_weight as sub_item_weight, b.pro_resp as sub_pro_resp, b.eim as sub_eim, b.overall_plan as sub_overall_plan, b.checker as sub_checker, b.reviewer as sub_reviewer, b.pipe_review as sub_pipe_review, b.approval as sub_approval, b.design_guidance as sub_design_guidance, b.design1 as sub_design1, b.design2 as sub_design2, b.design3 as sub_design3, b.design4 as sub_design4, b.design5 as sub_design5, b.design6 as sub_design6, b.design7 as sub_design7, b.design8 as sub_design8, b.design9 as sub_design9, b.design10 as sub_design10, b.design11 as sub_design11, b.design12 as sub_design12, b.design13 as sub_design13, b.design14 as sub_design14, b.design15 as sub_design15, b.design16 as sub_design16, b.design17 as sub_design17, b.design18 as sub_design18, b.design19 as sub_design19, b.design20 as sub_design20, b.procurement_support as sub_procurement_support, b.consultant as sub_consultant, b.pro_resp_pct as sub_pro_resp_pct, b.eim_pct as sub_eim_pct, b.overall_plan_pct as sub_overall_plan_pct, b.checker_pct as sub_checker_pct, b.reviewer_pct as sub_reviewer_pct, b.pipe_review_pct as sub_pipe_review_pct, b.approval_pct as sub_approval_pct, b.design_guidance_pct as sub_design_guidance_pct, b.design1_pct as sub_design1_pct, b.design2_pct as sub_design2_pct, b.design3_pct as sub_design3_pct, b.design4_pct as sub_design4_pct, b.design5_pct as sub_design5_pct, b.design6_pct as sub_design6_pct, b.design7_pct as sub_design7_pct, b.design8_pct as sub_design8_pct, b.design9_pct as sub_design9_pct, b.design10_pct as sub_design10_pct, b.design11_pct as sub_design11_pct, b.design12_pct as sub_design12_pct, b.design13_pct as sub_design13_pct, b.design14_pct as sub_design14_pct, b.design15_pct as sub_design15_pct, b.design16_pct as sub_design16_pct, b.design17_pct as sub_design17_pct, b.design18_pct as sub_design18_pct, b.design19_pct as sub_design19_pct, b.design20_pct as sub_design20_pct, b.procurement_support_pct as sub_procurement_support_pct, b.consultant_pct as sub_consultant_pct, b.final1_pct as sub_final1_pct, b.final2_pct as sub_final2_pct, b.final3_pct as sub_final3_pct, b.final4_pct as sub_final4_pct, b.final5_pct as sub_final5_pct, b.final6_pct as sub_final6_pct, b.final7_pct as sub_final7_pct, b.final8_pct as sub_final8_pct, b.final9_pct as sub_final9_pct, b.final10_pct as sub_final10_pct, b.final11_pct as sub_final11_pct, b.final12_pct as sub_final12_pct, b.final13_pct as sub_final13_pct, b.final14_pct as sub_final14_pct, b.final15_pct as sub_final15_pct, b.final16_pct as sub_final16_pct, b.final17_pct as sub_final17_pct, b.final18_pct as sub_final18_pct, b.final19_pct as sub_final19_pct, b.final20_pct as sub_final20_pct, b.progress1 as sub_progress1, b.progress2 as sub_progress2, b.progress3 as sub_progress3, b.progress4 as sub_progress4, b.progress5 as sub_progress5, b.progress6 as sub_progress6, b.progress7 as sub_progress7, b.progress8 as sub_progress8, b.progress9 as sub_progress9, b.progress10 as sub_progress10, b.progress11 as sub_progress11, b.progress12 as sub_progress12, b.progress13 as sub_progress13, b.progress14 as sub_progress14, b.progress15 as sub_progress15, b.progress16 as sub_progress16, b.progress17 as sub_progress17, b.progress18 as sub_progress18, b.progress19 as sub_progress19, b.progress20 as sub_progress20, b.def1 as sub_def1, b.def2 as sub_def2, b.def3 as sub_def3, b.def4 as sub_def4, b.def5 as sub_def5, b.def6 as sub_def6, b.def7 as sub_def7, b.def8 as sub_def8, b.def9 as sub_def9, b.def10 as sub_def10, b.del_flag as sub_del_flag, b.create_by as sub_create_by, b.create_time as sub_create_time, b.update_by as sub_update_by, b.update_time as sub_update_time, b.remark as sub_remark, b.dept_id as sub_dept_id, b.user_id as sub_user_id
+        from tb_professional_allocation a
+        left join tb_professional_allocation_b b on b.head_id = a.id
+        where a.id = #{id}
+    </select>
+
+    <insert id="insertProfessionalAllocation" parameterType="ProfessionalAllocation" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_professional_allocation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="prjId != null">prj_id,</if>
+            <if test="profession != null">profession,</if>
+            <if test="projectName != null">project_name,</if>
+            <if test="projectNo != null">project_no,</if>
+            <if test="phaseNo != null">phase_no,</if>
+            <if test="def1 != null">def1,</if>
+            <if test="def2 != null">def2,</if>
+            <if test="def3 != null">def3,</if>
+            <if test="def4 != null">def4,</if>
+            <if test="def5 != null">def5,</if>
+            <if test="def6 != null">def6,</if>
+            <if test="def7 != null">def7,</if>
+            <if test="def8 != null">def8,</if>
+            <if test="def9 != null">def9,</if>
+            <if test="def10 != null">def10,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="prjId != null">#{prjId},</if>
+            <if test="profession != null">#{profession},</if>
+            <if test="projectName != null">#{projectName},</if>
+            <if test="projectNo != null">#{projectNo},</if>
+            <if test="phaseNo != null">#{phaseNo},</if>
+            <if test="def1 != null">#{def1},</if>
+            <if test="def2 != null">#{def2},</if>
+            <if test="def3 != null">#{def3},</if>
+            <if test="def4 != null">#{def4},</if>
+            <if test="def5 != null">#{def5},</if>
+            <if test="def6 != null">#{def6},</if>
+            <if test="def7 != null">#{def7},</if>
+            <if test="def8 != null">#{def8},</if>
+            <if test="def9 != null">#{def9},</if>
+            <if test="def10 != null">#{def10},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProfessionalAllocation" parameterType="ProfessionalAllocation">
+        update tb_professional_allocation
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="prjId != null">prj_id = #{prjId},</if>
+            <if test="profession != null">profession = #{profession},</if>
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="projectNo != null">project_no = #{projectNo},</if>
+            <if test="phaseNo != null">phase_no = #{phaseNo},</if>
+            <if test="def1 != null">def1 = #{def1},</if>
+            <if test="def2 != null">def2 = #{def2},</if>
+            <if test="def3 != null">def3 = #{def3},</if>
+            <if test="def4 != null">def4 = #{def4},</if>
+            <if test="def5 != null">def5 = #{def5},</if>
+            <if test="def6 != null">def6 = #{def6},</if>
+            <if test="def7 != null">def7 = #{def7},</if>
+            <if test="def8 != null">def8 = #{def8},</if>
+            <if test="def9 != null">def9 = #{def9},</if>
+            <if test="def10 != null">def10 = #{def10},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProfessionalAllocationById" parameterType="Long">
+        delete from tb_professional_allocation where id = #{id}
+    </delete>
+
+    <delete id="deleteProfessionalAllocationByIds" parameterType="String">
+        delete from tb_professional_allocation where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteProfessionalAllocationBByHeadIds" parameterType="String">
+        delete from tb_professional_allocation_b where head_id in
+        <foreach item="headId" collection="array" open="(" separator="," close=")">
+            #{headId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteProfessionalAllocationBByHeadId" parameterType="Long">
+        delete from tb_professional_allocation_b where head_id = #{headId}
+    </delete>
+
+    <insert id="batchProfessionalAllocationB">
+        insert into tb_professional_allocation_b( id, head_id, prj_id, item_id, item_no, item_name, item_weight, pro_resp, eim, overall_plan, checker, reviewer, pipe_review, approval, design_guidance, design1, design2, design3, design4, design5, design6, design7, design8, design9, design10, design11, design12, design13, design14, design15, design16, design17, design18, design19, design20, procurement_support, consultant, pro_resp_pct, eim_pct, overall_plan_pct, checker_pct, reviewer_pct, pipe_review_pct, approval_pct, design_guidance_pct, design1_pct, design2_pct, design3_pct, design4_pct, design5_pct, design6_pct, design7_pct, design8_pct, design9_pct, design10_pct, design11_pct, design12_pct, design13_pct, design14_pct, design15_pct, design16_pct, design17_pct, design18_pct, design19_pct, design20_pct, procurement_support_pct, consultant_pct, final1_pct, final2_pct, final3_pct, final4_pct, final5_pct, final6_pct, final7_pct, final8_pct, final9_pct, final10_pct, final11_pct, final12_pct, final13_pct, final14_pct, final15_pct, final16_pct, final17_pct, final18_pct, final19_pct, final20_pct, progress1, progress2, progress3, progress4, progress5, progress6, progress7, progress8, progress9, progress10, progress11, progress12, progress13, progress14, progress15, progress16, progress17, progress18, progress19, progress20, def1, def2, def3, def4, def5, def6, def7, def8, def9, def10, del_flag, create_by, create_time, update_by, update_time, remark, dept_id, user_id) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.id}, #{item.headId}, #{item.prjId}, #{item.itemId}, #{item.itemNo}, #{item.itemName}, #{item.itemWeight}, #{item.proResp}, #{item.eim}, #{item.overallPlan}, #{item.checker}, #{item.reviewer}, #{item.pipeReview}, #{item.approval}, #{item.designGuidance}, #{item.design1}, #{item.design2}, #{item.design3}, #{item.design4}, #{item.design5}, #{item.design6}, #{item.design7}, #{item.design8}, #{item.design9}, #{item.design10}, #{item.design11}, #{item.design12}, #{item.design13}, #{item.design14}, #{item.design15}, #{item.design16}, #{item.design17}, #{item.design18}, #{item.design19}, #{item.design20}, #{item.procurementSupport}, #{item.consultant}, #{item.proRespPct}, #{item.eimPct}, #{item.overallPlanPct}, #{item.checkerPct}, #{item.reviewerPct}, #{item.pipeReviewPct}, #{item.approvalPct}, #{item.designGuidancePct}, #{item.design1Pct}, #{item.design2Pct}, #{item.design3Pct}, #{item.design4Pct}, #{item.design5Pct}, #{item.design6Pct}, #{item.design7Pct}, #{item.design8Pct}, #{item.design9Pct}, #{item.design10Pct}, #{item.design11Pct}, #{item.design12Pct}, #{item.design13Pct}, #{item.design14Pct}, #{item.design15Pct}, #{item.design16Pct}, #{item.design17Pct}, #{item.design18Pct}, #{item.design19Pct}, #{item.design20Pct}, #{item.procurementSupportPct}, #{item.consultantPct}, #{item.final1Pct}, #{item.final2Pct}, #{item.final3Pct}, #{item.final4Pct}, #{item.final5Pct}, #{item.final6Pct}, #{item.final7Pct}, #{item.final8Pct}, #{item.final9Pct}, #{item.final10Pct}, #{item.final11Pct}, #{item.final12Pct}, #{item.final13Pct}, #{item.final14Pct}, #{item.final15Pct}, #{item.final16Pct}, #{item.final17Pct}, #{item.final18Pct}, #{item.final19Pct}, #{item.final20Pct}, #{item.progress1}, #{item.progress2}, #{item.progress3}, #{item.progress4}, #{item.progress5}, #{item.progress6}, #{item.progress7}, #{item.progress8}, #{item.progress9}, #{item.progress10}, #{item.progress11}, #{item.progress12}, #{item.progress13}, #{item.progress14}, #{item.progress15}, #{item.progress16}, #{item.progress17}, #{item.progress18}, #{item.progress19}, #{item.progress20}, #{item.def1}, #{item.def2}, #{item.def3}, #{item.def4}, #{item.def5}, #{item.def6}, #{item.def7}, #{item.def8}, #{item.def9}, #{item.def10}, #{item.delFlag}, #{item.createBy}, #{item.createTime}, #{item.updateBy}, #{item.updateTime}, #{item.remark}, #{item.deptId}, #{item.userId})
+        </foreach>
+    </insert>
+    <!-- 查询所有专业负责人策划 -->
+    <select id="selectAll" resultMap="ProfessionalAllocationResult">
+        SELECT * FROM tb_professional_allocation
+    </select>
+
+
+    <update id="updateProfessionalAllocationBHeadIdByItemId">
+        UPDATE tb_professional_allocation_b
+        SET head_id = #{headId}
+        WHERE id = #{itemId}
+    </update>
+
+    <select id="getProfessionByHeadId" resultType="java.lang.String">
+        SELECT profession FROM tb_professional_allocation WHERE id = #{headId}
+    </select>
+
+    <update id="updateProfessionById">
+        UPDATE tb_professional_allocation
+        SET profession = #{profession}, update_time = NOW()
+        WHERE id = #{headId}
+    </update>
+
+
+</mapper>

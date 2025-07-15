@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.DesignRatioMapper">
+
+    <resultMap type="DesignRatio" id="DesignRatioResult">
+        <result property="id"    column="id"    />
+        <result property="prjId"    column="prj_id"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="profession"    column="profession"    />
+        <result property="proLeader"    column="pro_leader"    />
+        <result property="internalPct"    column="internal_pct"    />
+        <result property="projPct"    column="proj_pct"    />
+        <result property="def1"    column="def1"    />
+        <result property="def2"    column="def2"    />
+        <result property="def3"    column="def3"    />
+        <result property="def4"    column="def4"    />
+        <result property="def5"    column="def5"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userId"    column="user_id"    />
+        <result property="deptId"    column="dept_id"    />
+    </resultMap>
+    <select id="selectProjPct" resultType="java.math.BigDecimal">
+        SELECT proj_pct
+        FROM tb_design_ratio
+        WHERE prj_id = #{prjId}
+          AND profession = #{profession}
+
+    </select>
+    <sql id="selectDesignRatioVo">
+        select id, prj_id, project_name, profession, pro_leader, internal_pct, proj_pct, def1, def2, def3, def4, def5, del_flag, create_by, create_time, update_by, update_time, remark from tb_design_ratio
+    </sql>
+
+
+
+
+
+    <!-- 先执行 SET sql_mode -->
+    <update id="setSqlMode">
+        SET sql_mode = REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', '');
+    </update>
+
+    <update id="updateDesignRatioPct">
+
+        UPDATE tb_design_ratio t1
+        SET t1.proj_pct = COALESCE(
+                                  (SELECT t2.def2
+                                   FROM tb_management_ratio t2
+                                   WHERE t1.prj_id = t2.prj_id
+                                   LIMIT 1), 0)
+            * COALESCE(t1.internal_pct/100, 0);
+    </update>
+
+    <select id="selectDesignRatioList" parameterType="DesignRatio" resultMap="DesignRatioResult">
+        select a.id, a.prj_id, a.project_name, a.profession, a.pro_leader, a.internal_pct, a.proj_pct, a.def1, a.def2, a.def3, a.def4, a.def5, a.del_flag, a.create_by, a.create_time, a.update_by, a.update_time, a.remark,a.user_id, a.dept_id from tb_design_ratio a
+        left join sys_user u on u.user_id = a.user_id
+        left join sys_dept d on d.dept_id = a.dept_id
+        <where>
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="profession != null  and profession != ''"> and profession = #{profession}</if>
+            <if test="proLeader != null  and proLeader != ''"> and pro_leader = #{proLeader}</if>
+            <!-- 数据范围过滤 -->
+            ${params.dataScope}
+        </where>
+    </select>
+
+    <select id="selectDesignRatioById" parameterType="Long" resultMap="DesignRatioResult">
+        <include refid="selectDesignRatioVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertDesignRatio" parameterType="DesignRatio" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_design_ratio
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="prjId != null">prj_id,</if>
+            <if test="projectName != null">project_name,</if>
+            <if test="profession != null">profession,</if>
+            <if test="proLeader != null">pro_leader,</if>
+            <if test="internalPct != null">internal_pct,</if>
+            <if test="projPct != null">proj_pct,</if>
+            <if test="def1 != null">def1,</if>
+            <if test="def2 != null">def2,</if>
+            <if test="def3 != null">def3,</if>
+            <if test="def4 != null">def4,</if>
+            <if test="def5 != null">def5,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="prjId != null">#{prjId},</if>
+            <if test="projectName != null">#{projectName},</if>
+            <if test="profession != null">#{profession},</if>
+            <if test="proLeader != null">#{proLeader},</if>
+            <if test="internalPct != null">#{internalPct},</if>
+            <if test="projPct != null">#{projPct},</if>
+            <if test="def1 != null">#{def1},</if>
+            <if test="def2 != null">#{def2},</if>
+            <if test="def3 != null">#{def3},</if>
+            <if test="def4 != null">#{def4},</if>
+            <if test="def5 != null">#{def5},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+
+    <update id="updateDesignRatio" parameterType="DesignRatio">
+        update tb_design_ratio
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="prjId != null">prj_id = #{prjId},</if>
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="profession != null">profession = #{profession},</if>
+            <if test="proLeader != null">pro_leader = #{proLeader},</if>
+            <if test="internalPct != null">internal_pct = #{internalPct},</if>
+            <if test="projPct != null">proj_pct = #{projPct},</if>
+            <if test="def1 != null">def1 = #{def1},</if>
+            <if test="def2 != null">def2 = #{def2},</if>
+            <if test="def3 != null">def3 = #{def3},</if>
+            <if test="def4 != null">def4 = #{def4},</if>
+            <if test="def5 != null">def5 = #{def5},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <update id="updateManagementRatioDef2">
+        update tb_management_ratio
+        set def2 = #{projectDesignPct}
+        where prj_Id = #{prjId}
+    </update>
+
+    <delete id="deleteDesignRatioById" parameterType="Long">
+        delete from tb_design_ratio where id = #{id}
+    </delete>
+
+    <delete id="deleteDesignRatioByIds" parameterType="String">
+        delete from tb_design_ratio where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- 查询已分配的设计比例数据 -->
+    <select id="selectAllocatedList" resultMap="DesignRatioResult">
+        select a.id, a.prj_id, a.project_name, a.profession, a.pro_leader, a.internal_pct, a.proj_pct, a.def1, a.def2, a.def3, a.def4, a.def5, a.del_flag, a.create_by, a.create_time, a.update_by, a.update_time, a.remark, a.user_id, a.dept_id from tb_design_ratio a
+        left join sys_user u on u.user_id = a.user_id
+        left join sys_dept d on d.dept_id = a.dept_id
+        left join tb_professional_allocation tpd on a.prj_id = tpd.prj_id
+        <where>
+            <if test="prjId != null "> and a.prj_id = #{prjId}</if>
+            <!--<if test="itemId != null "> and tpd.item_id = #{idtmId}</if>-->
+            <!-- 数据范围过滤 -->
+            ${params.dataScope}
+        </where>
+    </select>
+
+    <update id="updateDef1ByPrjIdAndProfession">
+        UPDATE tb_design_ratio
+        SET def1 = #{def1}
+        WHERE prj_id = #{prjId} AND profession = #{profession}
+    </update>
+
+    <select id="sumDef1ByPrjIdAndProfession" resultType="java.math.BigDecimal">
+        SELECT SUM(def1)
+        FROM tb_design_ratio
+        WHERE prj_id = #{prjId}
+    </select>
+</mapper>

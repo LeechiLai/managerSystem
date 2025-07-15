@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.ProjectMapper">
+
+    <resultMap type="Project" id="ProjectResult">
+        <result property="id"    column="id"    />
+        <result property="yearmonth"    column="yearmonth"    />
+        <result property="businessType"    column="business_type"    />
+        <result property="industryCategory"    column="industry_category"    />
+        <result property="industrySubcategory"    column="industry_subcategory"    />
+        <result property="region"    column="region"    />
+        <result property="projectScale"    column="project_scale"    />
+        <result property="contractSxsj"    column="contract_sxsj"    />
+        <result property="contractStatus"    column="contract_status"    />
+        <result property="prjexecStatus"    column="prjexec_status"    />
+        <result property="department"    column="department"    />
+        <result property="originalDepartment"    column="original_department"    />
+        <result property="projectCode"    column="project_code"    />
+        <result property="projectPhase"    column="project_phase"    />
+        <result property="contractNumber"    column="contract_number"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="constructionUnit"    column="construction_unit"    />
+        <result property="projectScope"    column="project_scope"    />
+        <result property="totalInvestment"    column="total_investment"    />
+        <result property="amtIncTax"    column="amtIncTax"    />
+        <result property="amtExcTax"    column="amtExcTax"    />
+        <result property="stageAmtIncTa"    column="stageAmtIncTa"    />
+        <result property="projectManager"    column="project_manager"    />
+        <result property="negResp"    column="negResp"    />
+        <result property="industryDirector"    column="industry_director"    />
+        <result property="execResp"    column="execResp"    />
+        <result property="certResp"    column="certResp"    />
+        <result property="eimResp"    column="eimResp"    />
+        <result property="subcAmtIncTax"    column="subcAmtIncTax"    />
+        <result property="recvdAmt"    column="recvdAmt"    />
+        <result property="unrecdAmt"    column="unrecdAmt"    />
+        <result property="recvRatio"    column="recvRatio"    />
+        <result property="prevYrRecv"    column="prevYrRecv"    />
+        <result property="currYrRecv"    column="currYrRecv"    />
+        <result property="recvreMarks"    column="recvreMarks"    />
+        <result property="def1"    column="def1"    />
+        <result property="def2"    column="def2"    />
+        <result property="def3"    column="def3"    />
+        <result property="def4"    column="def4"    />
+        <result property="def5"    column="def5"    />
+        <result property="def6"    column="def6"    />
+        <result property="def7"    column="def7"    />
+        <result property="def8"    column="def8"    />
+        <result property="def9"    column="def9"    />
+        <result property="def10"    column="def10"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userId"    column="user_id"    />
+        <result property="deptId"    column="dept_id"    />
+    </resultMap>
+
+    <sql id="selectProjectVo">
+        select id, yearmonth, business_type, industry_category, industry_subcategory, region, project_scale, contract_sxsj, contract_status, prjexec_status, department, original_department, project_code, project_phase, contract_number, project_name, construction_unit, project_scope, total_investment, amtIncTax, amtExcTax, stageAmtIncTa, project_manager, negResp, industry_director, execResp, certResp, eimResp, subcAmtIncTax, recvdAmt, unrecdAmt, recvRatio, prevYrRecv, currYrRecv, recvreMarks, def1, def2, def3, def4, def5, def6, def7, def8, def9, def10, del_flag, create_by, create_time, update_by, update_time, remark from project
+    </sql>
+    <!-- 文件: pm-business/src/main/resources/mapper/business/ProjectMapper.xml -->
+    <select id="selectAllProjects"  resultMap="ProjectResult">
+        SELECT * FROM project p
+        WHERE p.del_flag != '2'  <!-- 假设 del_flag='2' 表示删除 -->
+    </select>
+    <select id="selectProjectList" parameterType="Project" resultMap="ProjectResult">
+        select p.id, p.yearmonth, p.business_type, p.industry_category, p.industry_subcategory, p.region, p.project_scale, p.contract_sxsj, p.contract_status, p.prjexec_status, p.department, p.original_department, p.project_code, p.project_phase, p.contract_number, p.project_name, p.construction_unit, p.project_scope, p.total_investment, p.amtIncTax, p.amtExcTax, p.stageAmtIncTa, p.project_manager, p.negResp, p.industry_director, p.execResp, p.certResp, p.eimResp, p.subcAmtIncTax, p.recvdAmt, p.unrecdAmt, p.recvRatio, p.prevYrRecv, p.currYrRecv, p.recvreMarks, p.def1, p.def2, p.def3, p.def4, p.def5, p.def6, p.def7, p.def8, p.def9, p.def10, p.del_flag, p.create_by, p.create_time, p.update_by, p.update_time, p.remark, p.user_id, p.dept_id from project p
+        left join sys_user u on u.user_id = p.user_id
+        left join sys_dept d on d.dept_id = p.dept_id
+        <where>
+            <!-- 增加 del_flag != '2' 条件 -->
+            p.del_flag != '2'
+            <if test="yearmonth != null "> and yearmonth = #{yearmonth}</if>
+            <if test="businessType != null  and businessType != ''"> and business_type = #{businessType}</if>
+            <if test="contractNumber != null  and contractNumber != ''"> and contract_number = #{contractNumber}</if>
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="projectManager != null  and projectManager != ''"> and project_manager = #{projectManager}</if>
+            <!-- 项目运行情况页面查询条件：工程号、项目执行状态  -->
+            <if test="projectCode != null and projectCode != ''">AND project_code like concat('%', #{projectCode}, '%')</if>
+            <if test="prjexecStatus != null and prjexecStatus != ''">AND prjexec_status = #{prjexecStatus}</if>
+            <!-- 数据范围过滤 -->
+            ${params.dataScope}
+        </where>
+        ORDER BY p.create_time desc
+    </select>
+
+    <select id="selectProjectById" parameterType="Long" resultMap="ProjectResult">
+        <include refid="selectProjectVo"/>
+        where id = #{id} and  del_flag != '2'
+    </select>
+
+    <insert id="insertProject" parameterType="Project" useGeneratedKeys="true" keyProperty="id">
+        insert into project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="yearmonth != null">yearmonth,</if>
+            <if test="businessType != null and businessType != ''">business_type,</if>
+            <if test="industryCategory != null and industryCategory != ''">industry_category,</if>
+            <if test="industrySubcategory != null">industry_subcategory,</if>
+            <if test="region != null">region,</if>
+            <if test="projectScale != null">project_scale,</if>
+            <if test="contractSxsj != null">contract_sxsj,</if>
+            <if test="contractStatus != null">contract_status,</if>
+            <if test="prjexecStatus != null">prjexec_status,</if>
+            <if test="department != null">department,</if>
+            <if test="originalDepartment != null">original_department,</if>
+            <if test="projectCode != null and projectCode != ''">project_code,</if>
+            <if test="projectPhase != null and projectPhase != ''">project_phase,</if>
+            <if test="contractNumber != null and contractNumber != ''">contract_number,</if>
+            <if test="projectName != null and projectName != ''">project_name,</if>
+            <if test="constructionUnit != null">construction_unit,</if>
+            <if test="projectScope != null">project_scope,</if>
+            <if test="totalInvestment != null">total_investment,</if>
+            <if test="amtIncTax != null">amtIncTax,</if>
+            <if test="amtExcTax != null">amtExcTax,</if>
+            <if test="stageAmtIncTa != null">stageAmtIncTa,</if>
+            <if test="projectManager != null">project_manager,</if>
+            <if test="negResp != null">negResp,</if>
+            <if test="industryDirector != null">industry_director,</if>
+            <if test="execResp != null">execResp,</if>
+            <if test="certResp != null">certResp,</if>
+            <if test="eimResp != null">eimResp,</if>
+            <if test="subcAmtIncTax != null">subcAmtIncTax,</if>
+            <if test="recvdAmt != null">recvdAmt,</if>
+            <if test="unrecdAmt != null">unrecdAmt,</if>
+            <if test="recvRatio != null">recvRatio,</if>
+            <if test="prevYrRecv != null">prevYrRecv,</if>
+            <if test="currYrRecv != null">currYrRecv,</if>
+            <if test="recvreMarks != null">recvreMarks,</if>
+            <if test="def1 != null">def1,</if>
+            <if test="def2 != null">def2,</if>
+            <if test="def3 != null">def3,</if>
+            <if test="def4 != null">def4,</if>
+            <if test="def5 != null">def5,</if>
+            <if test="def6 != null">def6,</if>
+            <if test="def7 != null">def7,</if>
+            <if test="def8 != null">def8,</if>
+            <if test="def9 != null">def9,</if>
+            <if test="def10 != null">def10,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="deptId != null">dept_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="yearmonth != null">#{yearmonth},</if>
+            <if test="businessType != null and businessType != ''">#{businessType},</if>
+            <if test="industryCategory != null and industryCategory != ''">#{industryCategory},</if>
+            <if test="industrySubcategory != null">#{industrySubcategory},</if>
+            <if test="region != null">#{region},</if>
+            <if test="projectScale != null">#{projectScale},</if>
+            <if test="contractSxsj != null">#{contractSxsj},</if>
+            <if test="contractStatus != null">#{contractStatus},</if>
+            <if test="prjexecStatus != null">#{prjexecStatus},</if>
+            <if test="department != null">#{department},</if>
+            <if test="originalDepartment != null">#{originalDepartment},</if>
+            <if test="projectCode != null and projectCode != ''">#{projectCode},</if>
+            <if test="projectPhase != null and projectPhase != ''">#{projectPhase},</if>
+            <if test="contractNumber != null and contractNumber != ''">#{contractNumber},</if>
+            <if test="projectName != null and projectName != ''">#{projectName},</if>
+            <if test="constructionUnit != null">#{constructionUnit},</if>
+            <if test="projectScope != null">#{projectScope},</if>
+            <if test="totalInvestment != null">#{totalInvestment},</if>
+            <if test="amtIncTax != null">#{amtIncTax},</if>
+            <if test="amtExcTax != null">#{amtExcTax},</if>
+            <if test="stageAmtIncTa != null">#{stageAmtIncTa},</if>
+            <if test="projectManager != null">#{projectManager},</if>
+            <if test="negResp != null">#{negResp},</if>
+            <if test="industryDirector != null">#{industryDirector},</if>
+            <if test="execResp != null">#{execResp},</if>
+            <if test="certResp != null">#{certResp},</if>
+            <if test="eimResp != null">#{eimResp},</if>
+            <if test="subcAmtIncTax != null">#{subcAmtIncTax},</if>
+            <if test="recvdAmt != null">#{recvdAmt},</if>
+            <if test="unrecdAmt != null">#{unrecdAmt},</if>
+            <if test="recvRatio != null">#{recvRatio},</if>
+            <if test="prevYrRecv != null">#{prevYrRecv},</if>
+            <if test="currYrRecv != null">#{currYrRecv},</if>
+            <if test="recvreMarks != null">#{recvreMarks},</if>
+            <if test="def1 != null">#{def1},</if>
+            <if test="def2 != null">#{def2},</if>
+            <if test="def3 != null">#{def3},</if>
+            <if test="def4 != null">#{def4},</if>
+            <if test="def5 != null">#{def5},</if>
+            <if test="def6 != null">#{def6},</if>
+            <if test="def7 != null">#{def7},</if>
+            <if test="def8 != null">#{def8},</if>
+            <if test="def9 != null">#{def9},</if>
+            <if test="def10 != null">#{def10},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="deptId != null">#{deptId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProject" parameterType="Project">
+        update project
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="yearmonth != null">yearmonth = #{yearmonth},</if>
+            <if test="businessType != null and businessType != ''">business_type = #{businessType},</if>
+            <if test="industryCategory != null and industryCategory != ''">industry_category = #{industryCategory},</if>
+            <if test="industrySubcategory != null">industry_subcategory = #{industrySubcategory},</if>
+            <if test="region != null">region = #{region},</if>
+            <if test="projectScale != null">project_scale = #{projectScale},</if>
+            <if test="contractSxsj != null">contract_sxsj = #{contractSxsj},</if>
+            <if test="contractStatus != null">contract_status = #{contractStatus},</if>
+            <if test="prjexecStatus != null">prjexec_status = #{prjexecStatus},</if>
+            <if test="department != null">department = #{department},</if>
+            <if test="originalDepartment != null">original_department = #{originalDepartment},</if>
+            <if test="projectCode != null and projectCode != ''">project_code = #{projectCode},</if>
+            <if test="projectPhase != null and projectPhase != ''">project_phase = #{projectPhase},</if>
+            <if test="contractNumber != null and contractNumber != ''">contract_number = #{contractNumber},</if>
+            <if test="projectName != null and projectName != ''">project_name = #{projectName},</if>
+            <if test="constructionUnit != null">construction_unit = #{constructionUnit},</if>
+            <if test="projectScope != null">project_scope = #{projectScope},</if>
+            <if test="totalInvestment != null">total_investment = #{totalInvestment},</if>
+            <if test="amtIncTax != null">amtIncTax = #{amtIncTax},</if>
+            <if test="amtExcTax != null">amtExcTax = #{amtExcTax},</if>
+            <if test="stageAmtIncTa != null">stageAmtIncTa = #{stageAmtIncTa},</if>
+            <if test="projectManager != null">project_manager = #{projectManager},</if>
+            <if test="negResp != null">negResp = #{negResp},</if>
+            <if test="industryDirector != null">industry_director = #{industryDirector},</if>
+            <if test="execResp != null">execResp = #{execResp},</if>
+            <if test="certResp != null">certResp = #{certResp},</if>
+            <if test="eimResp != null">eimResp = #{eimResp},</if>
+            <if test="subcAmtIncTax != null">subcAmtIncTax = #{subcAmtIncTax},</if>
+            <if test="recvdAmt != null">recvdAmt = #{recvdAmt},</if>
+            <if test="unrecdAmt != null">unrecdAmt = #{unrecdAmt},</if>
+            <if test="recvRatio != null">recvRatio = #{recvRatio},</if>
+            <if test="prevYrRecv != null">prevYrRecv = #{prevYrRecv},</if>
+            <if test="currYrRecv != null">currYrRecv = #{currYrRecv},</if>
+            <if test="recvreMarks != null">recvreMarks = #{recvreMarks},</if>
+            <if test="def1 != null">def1 = #{def1},</if>
+            <if test="def2 != null">def2 = #{def2},</if>
+            <if test="def3 != null">def3 = #{def3},</if>
+            <if test="def4 != null">def4 = #{def4},</if>
+            <if test="def5 != null">def5 = #{def5},</if>
+            <if test="def6 != null">def6 = #{def6},</if>
+            <if test="def7 != null">def7 = #{def7},</if>
+            <if test="def8 != null">def8 = #{def8},</if>
+            <if test="def9 != null">def9 = #{def9},</if>
+            <if test="def10 != null">def10 = #{def10},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProjectById" parameterType="Long">
+        delete from project where id = #{id} and del_flag = 0
+    </delete>
+
+    <!--<delete id="deleteProjectByIds" parameterType="String">
+        delete from project where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>-->
+    <!--变成逻辑删除-->
+    <update id="deleteProjectByIds" parameterType="String">
+        UPDATE project
+        SET del_flag = 2
+        WHERE id IN
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+</mapper>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.PrjOptStatusMapper">
+
+    <resultMap type="PrjOptStatus" id="PrjOptStatusResult">
+        <result property="id"    column="id"    />
+        <result property="projectId"    column="prj_id"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="phaseNo"    column="phase_no"    />
+        <result property="projectCode"    column="project_code"    />
+        <result property="prjexecStatus"    column="prjexec_status"    />
+        <result property="recvRatio"    column="recvRatio"    />
+        <result property="progress"    column="progress"    />
+        <result property="projectManager"    column="project_manager"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectPrjOptStatusVo">
+        select id, project_name, phase_no, project_code, prjexec_status, recvRatio, progress, project_manager, del_flag, create_by, create_time, update_by, update_time, remark, dept_id, user_id from tb_prj_opt_status
+    </sql>
+
+    <select id="selectPrjOptStatusList" parameterType="PrjOptStatus" resultMap="PrjOptStatusResult">
+        <include refid="selectPrjOptStatusVo"/>
+        <where>
+            tb_prj_opt_status.del_flag = 0
+            <!-- 新增关联 project 表并过滤 del_flag != 2 -->
+            AND EXISTS (
+            SELECT 1 FROM project p
+            WHERE p.id = tb_prj_opt_status.prj_id
+            AND p.del_flag != 2
+            )
+            <if test="projectName != null and projectName != ''">
+                AND project_name LIKE CONCAT('%', #{projectName}, '%')
+            </if>
+            <if test="projectCode != null and projectCode != ''">
+                AND project_code = #{projectCode}
+            </if>
+            <if test="prjexecStatus != null and prjexecStatus != ''">
+                AND prjexec_status = #{prjexecStatus}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="selectPrjOptStatusById" parameterType="Long" resultMap="PrjOptStatusResult">
+        <include refid="selectPrjOptStatusVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertPrjOptStatus" parameterType="PrjOptStatus" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_prj_opt_status
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="projectName != null">project_name,</if>
+            <if test="phaseNo != null">phase_no,</if>
+            <if test="projectCode != null">project_code,</if>
+            <if test="prjexecStatus != null">prjexec_status,</if>
+            <if test="recvRatio != null">recvRatio,</if>
+            <if test="progress != null">progress,</if>
+            <if test="projectManager != null">project_manager,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="projectId != null">prj_id,</if> <!-- 新增字段 -->
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="projectName != null">#{projectName},</if>
+            <if test="phaseNo != null">#{phaseNo},</if>
+            <if test="projectCode != null">#{projectCode},</if>
+            <if test="prjexecStatus != null">#{prjexecStatus},</if>
+            <if test="recvRatio != null">#{recvRatio},</if>
+            <if test="progress != null">#{progress},</if>
+            <if test="projectManager != null">#{projectManager},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="projectId != null">#{projectId},</if> <!-- 新增字段 -->
+         </trim>
+    </insert>
+
+    <update id="updatePrjOptStatus" parameterType="PrjOptStatus">
+        update tb_prj_opt_status
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="phaseNo != null">phase_no = #{phaseNo},</if>
+            <if test="projectCode != null">project_code = #{projectCode},</if>
+            <if test="prjexecStatus != null">prjexec_status = #{prjexecStatus},</if>
+            <if test="recvRatio != null">recvRatio = #{recvRatio},</if>
+            <if test="progress != null">progress = #{progress},</if>
+            <if test="projectManager != null">project_manager = #{projectManager},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePrjOptStatusById" parameterType="Long">
+        delete from tb_prj_opt_status where id = #{id}
+    </delete>
+
+    <delete id="deletePrjOptStatusByIds" parameterType="String">
+        delete from tb_prj_opt_status where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <!-- Mapper XML补充 -->
+    <update id="updateDef1ByPrjId">
+        UPDATE prj_opt_status
+        SET def1 = #{def1}
+        WHERE prj_id = #{prjId}
+    </update>
+    <update id="updateByPrjIdSelective">
+        UPDATE tb_prj_opt_status
+        <set>
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="phaseNo != null">phase_no = #{phaseNo},</if>
+            <if test="projectCode != null">project_code = #{projectCode},</if>
+            <if test="prjexecStatus != null">prjexec_status = #{prjexecStatus},</if>
+            <if test="recvRatio != null">recvRatio = #{recvRatio},</if>
+            <if test="progress != null">progress = #{progress},</if>
+            <if test="projectManager != null">project_manager = #{projectManager},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </set>
+        WHERE prj_id = #{projectId}
+    </update>
+
+    <update id="batchUpdateProjectData">
+        UPDATE tb_prj_opt_status
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="list[0].projectName != null">
+                project_name = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.projectName}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].phaseNo != null">
+                phase_no = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.phaseNo}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].projectCode != null">
+                project_code = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.projectCode}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].prjexecStatus != null">
+                prjexec_status = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.prjexecStatus}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].recvRatio != null">
+                recvRatio = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.recvRatio}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].progress != null">
+                progress = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.progress}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].projectManager != null">
+                project_manager = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.projectManager}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].delFlag != null">
+                del_flag = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.delFlag}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].deptId != null">
+                dept_id = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.deptId}
+                </foreach>
+                END,
+            </if>
+            <if test="list[0].userId != null">
+                user_id = CASE prj_id
+                <foreach collection="list" item="item">
+                    WHEN #{item.projectId} THEN #{item.userId}
+                </foreach>
+                END,
+            </if>
+        </trim>
+        WHERE prj_id IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item.projectId}
+        </foreach>
+    </update>
+</mapper>

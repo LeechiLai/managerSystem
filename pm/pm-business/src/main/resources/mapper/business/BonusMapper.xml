@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.BonusMapper">
+
+    <resultMap type="Bonus" id="TbBonusResult">
+        <result property="id"    column="id"    />
+        <result property="sysuserId"    column="sysuser_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="bonus"    column="bonus"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectTbBonusVo">
+        select id, sysuser_id, user_name, bonus, dept_id, user_id from tb_bonus
+    </sql>
+
+    <select id="selectTbBonusList" parameterType="Bonus" resultMap="TbBonusResult">
+        <include refid="selectTbBonusVo"/>
+        <where>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+        </where>
+    </select>
+
+    <select id="selectTbBonusById" parameterType="Long" resultMap="TbBonusResult">
+        <include refid="selectTbBonusVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertTbBonus" parameterType="Bonus" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_bonus
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysuserId != null">sysuser_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="bonus != null">bonus,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sysuserId != null">#{sysuserId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="bonus != null">#{bonus},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTbBonus" parameterType="Bonus">
+        update tb_bonus
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="sysuserId != null">sysuser_id = #{sysuserId},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="bonus != null">bonus = #{bonus},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTbBonusById" parameterType="Long">
+        delete from tb_bonus where id = #{id}
+    </delete>
+
+    <delete id="deleteTbBonusByIds" parameterType="String">
+        delete from tb_bonus where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getBonusList" resultType="BonusItemDTO">
+
+        SELECT
+            projectName,
+            SUM(bonusAmount) AS bonusAmount
+        FROM (
+                 SELECT
+                     pd.project_name AS projectName,
+                     (
+                         COALESCE(pab.designGuidanceFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design_guidance) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.reviewerFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.reviewer) > 0 THEN 1 ELSE 0 END), 0)+
+                         #参照类似补充1
+                         COALESCE(pab.proRespFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.pro_resp) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.eimFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.eim) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.overallPlanFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.overall_plan) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.checkerFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.checker) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.pipeReviewFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.pipe_review) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.approvalFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.approval) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.consultantFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.consultant) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.procurementSupportFinalPct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.procurement_support) > 0 THEN 1 ELSE 0 END), 0)+
+                         COALESCE(pab.final1_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design1) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final2_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design2) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final3_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design3) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final4_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design4) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final5_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design5) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final6_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design6) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final7_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design7) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final8_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design8) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final9_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design9) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final10_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design10) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final11_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design11) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final12_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design12) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final13_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design13) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final14_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design14) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final15_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design15) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final16_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design16) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final17_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design17) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final18_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design18) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final19_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design19) > 0 THEN 1 ELSE 0 END), 0) +
+                         COALESCE(pab.final20_pct / 100 * (CASE WHEN FIND_IN_SET(#{name}, pab.design20) > 0 THEN 1 ELSE 0 END), 0)
+
+                         ) * pd.recvreMarks AS bonusAmount
+                 FROM project pd
+                          LEFT JOIN tb_professional_allocation_b pab ON pd.id = pab.prj_id
+                 WHERE EXISTS (
+                     SELECT 1
+                     FROM tb_professional_allocation_b
+                     WHERE prj_id = pd.id AND (
+                         FIND_IN_SET(#{name}
+                             , design_guidance) > 0 OR
+                         FIND_IN_SET(#{name}
+                             , reviewer) > 0  OR
+                         #类似补充2
+                         FIND_IN_SET(#{name}, pro_resp) > 0 OR
+                         FIND_IN_SET(#{name}, eim) > 0 OR
+                         FIND_IN_SET(#{name}, overall_plan) > 0 OR
+                         FIND_IN_SET(#{name}, checker) > 0 OR
+                         FIND_IN_SET(#{name}, pipe_review) > 0 OR
+                         FIND_IN_SET(#{name}, approval) > 0 OR
+                         FIND_IN_SET(#{name}, consultant) > 0 OR
+                         FIND_IN_SET(#{name}, procurement_support) > 0 OR
+                         FIND_IN_SET(#{name}, design1) > 0 OR
+                         FIND_IN_SET(#{name}, design2) > 0 OR
+                         FIND_IN_SET(#{name}, design3) > 0 OR
+                         FIND_IN_SET(#{name}, design4) > 0 OR
+                         FIND_IN_SET(#{name}, design5) > 0 OR
+                         FIND_IN_SET(#{name}, design6) > 0 OR
+                         FIND_IN_SET(#{name}, design7) > 0 OR
+                         FIND_IN_SET(#{name}, design8) > 0 OR
+                         FIND_IN_SET(#{name}, design9) > 0 OR
+                         FIND_IN_SET(#{name}, design10) > 0 OR
+                         FIND_IN_SET(#{name}, design11) > 0 OR
+                         FIND_IN_SET(#{name}, design12) > 0 OR
+                         FIND_IN_SET(#{name}, design13) > 0 OR
+                         FIND_IN_SET(#{name}, design14) > 0 OR
+                         FIND_IN_SET(#{name}, design15) > 0 OR
+                         FIND_IN_SET(#{name}, design16) > 0 OR
+                         FIND_IN_SET(#{name}, design17) > 0 OR
+                         FIND_IN_SET(#{name}, design18) > 0 OR
+                         FIND_IN_SET(#{name}, design19) > 0 OR
+                         FIND_IN_SET(#{name}, design20) > 0
+                         )
+                 )
+                 UNION ALL
+                 SELECT
+                     pd.project_name AS projectName,
+                     COALESCE(mr.proj_pct / 100, 0) * pd.recvreMarks AS bonusAmount
+                 FROM project pd
+                          LEFT JOIN tb_management_ratio mr ON pd.id = mr.prj_id
+                 WHERE mr.name = #{name}
+             ) AS combined_results
+        GROUP BY projectName
+
+    </select>
+</mapper>

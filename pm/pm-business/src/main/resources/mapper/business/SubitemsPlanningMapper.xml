@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.SubitemsPlanningMapper">
+
+    <resultMap type="SubitemsPlanning" id="SubitemsPlanningResult">
+        <result property="id"    column="id"    />
+        <result property="prjId"    column="prj_id"    />
+        <result property="itemId"    column="item_id"    />
+        <result property="profession"    column="profession"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="projectNo"    column="project_no"    />
+        <result property="phaseNo"    column="phase_no"    />
+        <result property="itemNo"    column="item_no"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemWeight"    column="item_weight"    />
+        <result property="proResp"    column="pro_resp"    />
+        <result property="eim"    column="eim"    />
+        <result property="overallPlan"    column="overall_plan"    />
+        <result property="checker"    column="checker"    />
+        <result property="reviewer"    column="reviewer"    />
+        <result property="pipeReview"    column="pipe_review"    />
+        <result property="approval"    column="approval"    />
+        <result property="designGuidance"    column="design_guidance"    />
+        <result property="design1"    column="design1"    />
+        <result property="design2"    column="design2"    />
+        <result property="design3"    column="design3"    />
+        <result property="design4"    column="design4"    />
+        <result property="design5"    column="design5"    />
+        <result property="design6"    column="design6"    />
+        <result property="design7"    column="design7"    />
+        <result property="design8"    column="design8"    />
+        <result property="design9"    column="design9"    />
+        <result property="design10"    column="design10"    />
+        <result property="design11"    column="design11"    />
+        <result property="design12"    column="design12"    />
+        <result property="design13"    column="design13"    />
+        <result property="design14"    column="design14"    />
+        <result property="design15"    column="design15"    />
+        <result property="design16"    column="design16"    />
+        <result property="design17"    column="design17"    />
+        <result property="design18"    column="design18"    />
+        <result property="design19"    column="design19"    />
+        <result property="design20"    column="design20"    />
+        <result property="procurementSupport"    column="procurement_support"    />
+        <result property="consultant"    column="consultant"    />
+        <result property="proRespPct"    column="pro_resp_pct"    />
+        <result property="eimPct"    column="eim_pct"    />
+        <result property="overallPlanPct"    column="overall_plan_pct"    />
+        <result property="checkerPct"    column="checker_pct"    />
+        <result property="reviewerPct"    column="reviewer_pct"    />
+        <result property="pipeReviewPct"    column="pipe_review_pct"    />
+        <result property="approvalPct"    column="approval_pct"    />
+        <result property="designGuidancePct"    column="design_guidance_pct"    />
+        <result property="design1Pct"    column="design1_pct"    />
+        <result property="design2Pct"    column="design2_pct"    />
+        <result property="design3Pct"    column="design3_pct"    />
+        <result property="design4Pct"    column="design4_pct"    />
+        <result property="design5Pct"    column="design5_pct"    />
+        <result property="design6Pct"    column="design6_pct"    />
+        <result property="design7Pct"    column="design7_pct"    />
+        <result property="design8Pct"    column="design8_pct"    />
+        <result property="design9Pct"    column="design9_pct"    />
+        <result property="design10Pct"    column="design10_pct"    />
+        <result property="design11Pct"    column="design11_pct"    />
+        <result property="design12Pct"    column="design12_pct"    />
+        <result property="design13Pct"    column="design13_pct"    />
+        <result property="design14Pct"    column="design14_pct"    />
+        <result property="design15Pct"    column="design15_pct"    />
+        <result property="design16Pct"    column="design16_pct"    />
+        <result property="design17Pct"    column="design17_pct"    />
+        <result property="design18Pct"    column="design18_pct"    />
+        <result property="design19Pct"    column="design19_pct"    />
+        <result property="design20Pct"    column="design20_pct"    />
+        <result property="procurementSupportPct"    column="procurement_support_pct"    />
+        <result property="consultantPct"    column="consultant_pct"    />
+        <result property="final1Pct"    column="final1_pct"    />
+        <result property="final2Pct"    column="final2_pct"    />
+        <result property="final3Pct"    column="final3_pct"    />
+        <result property="final4Pct"    column="final4_pct"    />
+        <result property="final5Pct"    column="final5_pct"    />
+        <result property="final6Pct"    column="final6_pct"    />
+        <result property="final7Pct"    column="final7_pct"    />
+        <result property="final8Pct"    column="final8_pct"    />
+        <result property="final9Pct"    column="final9_pct"    />
+        <result property="final10Pct"    column="final10_pct"    />
+        <result property="final11Pct"    column="final11_pct"    />
+        <result property="final12Pct"    column="final12_pct"    />
+        <result property="final13Pct"    column="final13_pct"    />
+        <result property="final14Pct"    column="final14_pct"    />
+        <result property="final15Pct"    column="final15_pct"    />
+        <result property="final16Pct"    column="final16_pct"    />
+        <result property="final17Pct"    column="final17_pct"    />
+        <result property="final18Pct"    column="final18_pct"    />
+        <result property="final19Pct"    column="final19_pct"    />
+        <result property="final20Pct"    column="final20_pct"    />
+        <result property="progress1"    column="progress1"    />
+        <result property="progress2"    column="progress2"    />
+        <result property="progress3"    column="progress3"    />
+        <result property="progress4"    column="progress4"    />
+        <result property="progress5"    column="progress5"    />
+        <result property="progress6"    column="progress6"    />
+        <result property="progress7"    column="progress7"    />
+        <result property="progress8"    column="progress8"    />
+        <result property="progress9"    column="progress9"    />
+        <result property="progress10"    column="progress10"    />
+        <result property="progress11"    column="progress11"    />
+        <result property="progress12"    column="progress12"    />
+        <result property="progress13"    column="progress13"    />
+        <result property="progress14"    column="progress14"    />
+        <result property="progress15"    column="progress15"    />
+        <result property="progress16"    column="progress16"    />
+        <result property="progress17"    column="progress17"    />
+        <result property="progress18"    column="progress18"    />
+        <result property="progress19"    column="progress19"    />
+        <result property="progress20"    column="progress20"    />
+        <result property="def1"    column="def1"    />
+        <result property="def2"    column="def2"    />
+        <result property="def3"    column="def3"    />
+        <result property="def4"    column="def4"    />
+        <result property="def5"    column="def5"    />
+        <result property="def6"    column="def6"    />
+        <result property="def7"    column="def7"    />
+        <result property="def8"    column="def8"    />
+        <result property="def9"    column="def9"    />
+        <result property="def10"    column="def10"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSubitemsPlanningVo">
+        /*select id, prj_id, item_id, profession, project_name, project_no, phase_no, item_no, item_name, item_weight, pro_resp, eim, overall_plan, checker, reviewer, pipe_review, approval, design_guidance, design1, design2, design3, design4, design5, design6, design7, design8, design9, design10, design11, design12, design13, design14, design15, design16, design17, design18, design19, design20, procurement_support, consultant, pro_resp_pct, eim_pct, overall_plan_pct, checker_pct, reviewer_pct, pipe_review_pct, approval_pct, design_guidance_pct, design1_pct, design2_pct, design3_pct, design4_pct, design5_pct, design6_pct, design7_pct, design8_pct, design9_pct, design10_pct, design11_pct, design12_pct, design13_pct, design14_pct, design15_pct, design16_pct, design17_pct, design18_pct, design19_pct, design20_pct, procurement_support_pct, consultant_pct, final1_pct, final2_pct, final3_pct, final4_pct, final5_pct, final6_pct, final7_pct, final8_pct, final9_pct, final10_pct, final11_pct, final12_pct, final13_pct, final14_pct, final15_pct, final16_pct, final17_pct, final18_pct, final19_pct, final20_pct,progress1,progress2, progress3, progress4, progress5, progress6, progress7,progress8,progress9,progress10,progress11,progress12,progress13,progress14,progress15,progress16,progress17,progress18,progress19,progress20,def1, def2, def3, def4, def5, def6, def7, def8, def9, def10, del_flag, create_by, create_time, update_by, update_time, remark from tb_subitems_planning
+*/
+        SELECT * FROM tb_subitems_planning
+    </sql>
+
+
+
+
+       <!-- 修改SQL模式 -->
+   <update id="modifySqlMode">
+       SET sql_mode = REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', '');
+   </update>
+
+   <!-- 更新操作 -->
+   <update id="updateSubitemsPlanningWithDesignRatio">
+       UPDATE tb_subitems_planning tsp
+           JOIN tb_design_ratio tdr ON tsp.prj_id = tdr.prj_id AND tsp.profession = tdr.profession
+       SET
+           tsp.final1_pct = tsp.item_weight / 100.0 * tsp.design1_pct / 100.0 * tsp.progress1 / 100.0 * tdr.proj_pct,
+           tsp.final2_pct = tsp.item_weight / 100.0 * tsp.design2_pct / 100.0 * tsp.progress2 / 100.0 * tdr.proj_pct,
+           tsp.final3_pct = tsp.item_weight / 100.0 * tsp.design3_pct / 100.0 * tsp.progress3 / 100.0 * tdr.proj_pct,
+           tsp.final4_pct = tsp.item_weight / 100.0 * tsp.design4_pct / 100.0 * tsp.progress4 / 100.0 * tdr.proj_pct,
+           tsp.final5_pct = tsp.item_weight / 100.0 * tsp.design5_pct / 100.0 * tsp.progress5 / 100.0 * tdr.proj_pct,
+           tsp.final6_pct = tsp.item_weight / 100.0 * tsp.design6_pct / 100.0 * tsp.progress6 / 100.0 * tdr.proj_pct,
+           tsp.final7_pct = tsp.item_weight / 100.0 * tsp.design7_pct / 100.0 * tsp.progress7 / 100.0 * tdr.proj_pct,
+           tsp.final8_pct = tsp.item_weight / 100.0 * tsp.design8_pct / 100.0 * tsp.progress8 / 100.0 * tdr.proj_pct,
+           tsp.final9_pct = tsp.item_weight / 100.0 * tsp.design9_pct / 100.0 * tsp.progress9 / 100.0 * tdr.proj_pct,
+           tsp.final10_pct = tsp.item_weight / 100.0 * tsp.design10_pct / 100.0 * tsp.progress10 / 100.0 * tdr.proj_pct,
+           tsp.final11_pct = tsp.item_weight / 100.0 * tsp.design11_pct / 100.0 * tsp.progress11 / 100.0 * tdr.proj_pct,
+           tsp.final12_pct = tsp.item_weight / 100.0 * tsp.design12_pct / 100.0 * tsp.progress12 / 100.0 * tdr.proj_pct,
+           tsp.final13_pct = tsp.item_weight / 100.0 * tsp.design13_pct / 100.0 * tsp.progress13 / 100.0 * tdr.proj_pct,
+           tsp.final14_pct = tsp.item_weight / 100.0 * tsp.design14_pct / 100.0 * tsp.progress14 / 100.0 * tdr.proj_pct,
+           tsp.final15_pct = tsp.item_weight / 100.0 * tsp.design15_pct / 100.0 * tsp.progress15 / 100.0 * tdr.proj_pct,
+           tsp.final16_pct = tsp.item_weight / 100.0 * tsp.design16_pct / 100.0 * tsp.progress16 / 100.0 * tdr.proj_pct,
+           tsp.final17_pct = tsp.item_weight / 100.0 * tsp.design17_pct / 100.0 * tsp.progress17 / 100.0 * tdr.proj_pct,
+           tsp.final18_pct = tsp.item_weight / 100.0 * tsp.design18_pct / 100.0 * tsp.progress18 / 100.0 * tdr.proj_pct,
+           tsp.final19_pct = tsp.item_weight / 100.0 * tsp.design19_pct / 100.0 * tsp.progress19 / 100.0 * tdr.proj_pct,
+           tsp.final20_pct = tsp.item_weight / 100.0 * tsp.design20_pct / 100.0 * tsp.progress20 / 100.0 * tdr.proj_pct;
+   </update>
+
+    <select id="selectSubitemsPlanningList" parameterType="SubitemsPlanning" resultMap="SubitemsPlanningResult">
+        <include refid="selectSubitemsPlanningVo"/>
+        <where>
+            <if test="profession != null  and profession != ''"> and profession = #{profession}</if>
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="projectNo != null  and projectNo != ''"> and project_no = #{projectNo}</if>
+            <if test="phaseNo != null  and phaseNo != ''"> and phase_no = #{phaseNo}</if>
+            <if test="itemName != null  and itemName != ''"> and item_name like concat('%', #{itemName}, '%')</if>
+        </where>
+
+    </select>
+
+    <select id="selectSubitemsPlanningById" parameterType="Long" resultMap="SubitemsPlanningResult">
+        <include refid="selectSubitemsPlanningVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertSubitemsPlanning" parameterType="SubitemsPlanning" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_subitems_planning
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="prjId != null">prj_id,</if>
+            <if test="itemId != null">item_id,</if>
+            <if test="profession != null">profession,</if>
+            <if test="projectName != null">project_name,</if>
+            <if test="projectNo != null">project_no,</if>
+            <if test="phaseNo != null">phase_no,</if>
+            <if test="itemNo != null and itemNo != ''">item_no,</if>
+            <if test="itemName != null and itemName != ''">item_name,</if>
+            <if test="itemWeight != null">item_weight,</if>
+            <if test="proResp != null">pro_resp,</if>
+            <if test="eim != null">eim,</if>
+            <if test="overallPlan != null">overall_plan,</if>
+            <if test="checker != null">checker,</if>
+            <if test="reviewer != null">reviewer,</if>
+            <if test="pipeReview != null">pipe_review,</if>
+            <if test="approval != null">approval,</if>
+            <if test="designGuidance != null">design_guidance,</if>
+            <if test="design1 != null">design1,</if>
+            <if test="design2 != null">design2,</if>
+            <if test="design3 != null">design3,</if>
+            <if test="design4 != null">design4,</if>
+            <if test="design5 != null">design5,</if>
+            <if test="design6 != null">design6,</if>
+            <if test="design7 != null">design7,</if>
+            <if test="design8 != null">design8,</if>
+            <if test="design9 != null">design9,</if>
+            <if test="design10 != null">design10,</if>
+            <if test="design11 != null">design11,</if>
+            <if test="design12 != null">design12,</if>
+            <if test="design13 != null">design13,</if>
+            <if test="design14 != null">design14,</if>
+            <if test="design15 != null">design15,</if>
+            <if test="design16 != null">design16,</if>
+            <if test="design17 != null">design17,</if>
+            <if test="design18 != null">design18,</if>
+            <if test="design19 != null">design19,</if>
+            <if test="design20 != null">design20,</if>
+            <if test="procurementSupport != null">procurement_support,</if>
+            <if test="consultant != null">consultant,</if>
+            <if test="proRespPct != null">pro_resp_pct,</if>
+            <if test="eimPct != null">eim_pct,</if>
+            <if test="overallPlanPct != null">overall_plan_pct,</if>
+            <if test="checkerPct != null">checker_pct,</if>
+            <if test="reviewerPct != null">reviewer_pct,</if>
+            <if test="pipeReviewPct != null">pipe_review_pct,</if>
+            <if test="approvalPct != null">approval_pct,</if>
+            <if test="designGuidancePct != null">design_guidance_pct,</if>
+            <if test="design1Pct != null">design1_pct,</if>
+            <if test="design2Pct != null">design2_pct,</if>
+            <if test="design3Pct != null">design3_pct,</if>
+            <if test="design4Pct != null">design4_pct,</if>
+            <if test="design5Pct != null">design5_pct,</if>
+            <if test="design6Pct != null">design6_pct,</if>
+            <if test="design7Pct != null">design7_pct,</if>
+            <if test="design8Pct != null">design8_pct,</if>
+            <if test="design9Pct != null">design9_pct,</if>
+            <if test="design10Pct != null">design10_pct,</if>
+            <if test="design11Pct != null">design11_pct,</if>
+            <if test="design12Pct != null">design12_pct,</if>
+            <if test="design13Pct != null">design13_pct,</if>
+            <if test="design14Pct != null">design14_pct,</if>
+            <if test="design15Pct != null">design15_pct,</if>
+            <if test="design16Pct != null">design16_pct,</if>
+            <if test="design17Pct != null">design17_pct,</if>
+            <if test="design18Pct != null">design18_pct,</if>
+            <if test="design19Pct != null">design19_pct,</if>
+            <if test="design20Pct != null">design20_pct,</if>
+            <if test="procurementSupportPct != null">procurement_support_pct,</if>
+            <if test="consultantPct != null">consultant_pct,</if>
+            <if test="final1Pct != null">final1_pct,</if>
+            <if test="final2Pct != null">final2_pct,</if>
+            <if test="final3Pct != null">final3_pct,</if>
+            <if test="final4Pct != null">final4_pct,</if>
+            <if test="final5Pct != null">final5_pct,</if>
+            <if test="final6Pct != null">final6_pct,</if>
+            <if test="final7Pct != null">final7_pct,</if>
+            <if test="final8Pct != null">final8_pct,</if>
+            <if test="final9Pct != null">final9_pct,</if>
+            <if test="final10Pct != null">final10_pct,</if>
+            <if test="final11Pct != null">final11_pct,</if>
+            <if test="final12Pct != null">final12_pct,</if>
+            <if test="final13Pct != null">final13_pct,</if>
+            <if test="final14Pct != null">final14_pct,</if>
+            <if test="final15Pct != null">final15_pct,</if>
+            <if test="final16Pct != null">final16_pct,</if>
+            <if test="final17Pct != null">final17_pct,</if>
+            <if test="final18Pct != null">final18_pct,</if>
+            <if test="final19Pct != null">final19_pct,</if>
+            <if test="final20Pct != null">final20_pct,</if>
+            <if test="progress1 != null">progress1,</if>
+            <if test="progress2 != null">progress2,</if>
+            <if test="progress3 != null">progress3,</if>
+            <if test="progress4 != null">progress4,</if>
+            <if test="progress5 != null">progress5,</if>
+            <if test="progress6 != null">progress6,</if>
+            <if test="progress7 != null">progress7,</if>
+            <if test="progress8 != null">progress8,</if>
+            <if test="progress9 != null">progress9,</if>
+            <if test="progress10 != null">progress10,</if>
+            <if test="progress11 != null">progress11,</if>
+            <if test="progress12 != null">progress12,</if>
+            <if test="progress13 != null">progress13,</if>
+            <if test="progress14 != null">progress14,</if>
+            <if test="progress15 != null">progress15,</if>
+            <if test="progress16 != null">progress16,</if>
+            <if test="progress17 != null">progress17,</if>
+            <if test="progress18 != null">progress18,</if>
+            <if test="progress19 != null">progress19,</if>
+            <if test="progress20 != null">progress20,</if>
+            <if test="def1 != null">def1,</if>
+            <if test="def2 != null">def2,</if>
+            <if test="def3 != null">def3,</if>
+            <if test="def4 != null">def4,</if>
+            <if test="def5 != null">def5,</if>
+            <if test="def6 != null">def6,</if>
+            <if test="def7 != null">def7,</if>
+            <if test="def8 != null">def8,</if>
+            <if test="def9 != null">def9,</if>
+            <if test="def10 != null">def10,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="prjId != null">#{prjId},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="profession != null">#{profession},</if>
+            <if test="projectName != null">#{projectName},</if>
+            <if test="projectNo != null">#{projectNo},</if>
+            <if test="phaseNo != null">#{phaseNo},</if>
+            <if test="itemNo != null and itemNo != ''">#{itemNo},</if>
+            <if test="itemName != null and itemName != ''">#{itemName},</if>
+            <if test="itemWeight != null">#{itemWeight},</if>
+            <if test="proResp != null">#{proResp},</if>
+            <if test="eim != null">#{eim},</if>
+            <if test="overallPlan != null">#{overallPlan},</if>
+            <if test="checker != null">#{checker},</if>
+            <if test="reviewer != null">#{reviewer},</if>
+            <if test="pipeReview != null">#{pipeReview},</if>
+            <if test="approval != null">#{approval},</if>
+            <if test="designGuidance != null">#{designGuidance},</if>
+            <if test="design1 != null">#{design1},</if>
+            <if test="design2 != null">#{design2},</if>
+            <if test="design3 != null">#{design3},</if>
+            <if test="design4 != null">#{design4},</if>
+            <if test="design5 != null">#{design5},</if>
+            <if test="design6 != null">#{design6},</if>
+            <if test="design7 != null">#{design7},</if>
+            <if test="design8 != null">#{design8},</if>
+            <if test="design9 != null">#{design9},</if>
+            <if test="design10 != null">#{design10},</if>
+            <if test="design11 != null">#{design11},</if>
+            <if test="design12 != null">#{design12},</if>
+            <if test="design13 != null">#{design13},</if>
+            <if test="design14 != null">#{design14},</if>
+            <if test="design15 != null">#{design15},</if>
+            <if test="design16 != null">#{design16},</if>
+            <if test="design17 != null">#{design17},</if>
+            <if test="design18 != null">#{design18},</if>
+            <if test="design19 != null">#{design19},</if>
+            <if test="design20 != null">#{design20},</if>
+            <if test="procurementSupport != null">#{procurementSupport},</if>
+            <if test="consultant != null">#{consultant},</if>
+            <if test="proRespPct != null">#{proRespPct},</if>
+            <if test="eimPct != null">#{eimPct},</if>
+            <if test="overallPlanPct != null">#{overallPlanPct},</if>
+            <if test="checkerPct != null">#{checkerPct},</if>
+            <if test="reviewerPct != null">#{reviewerPct},</if>
+            <if test="pipeReviewPct != null">#{pipeReviewPct},</if>
+            <if test="approvalPct != null">#{approvalPct},</if>
+            <if test="designGuidancePct != null">#{designGuidancePct},</if>
+            <if test="design1Pct != null">#{design1Pct},</if>
+            <if test="design2Pct != null">#{design2Pct},</if>
+            <if test="design3Pct != null">#{design3Pct},</if>
+            <if test="design4Pct != null">#{design4Pct},</if>
+            <if test="design5Pct != null">#{design5Pct},</if>
+            <if test="design6Pct != null">#{design6Pct},</if>
+            <if test="design7Pct != null">#{design7Pct},</if>
+            <if test="design8Pct != null">#{design8Pct},</if>
+            <if test="design9Pct != null">#{design9Pct},</if>
+            <if test="design10Pct != null">#{design10Pct},</if>
+            <if test="design11Pct != null">#{design11Pct},</if>
+            <if test="design12Pct != null">#{design12Pct},</if>
+            <if test="design13Pct != null">#{design13Pct},</if>
+            <if test="design14Pct != null">#{design14Pct},</if>
+            <if test="design15Pct != null">#{design15Pct},</if>
+            <if test="design16Pct != null">#{design16Pct},</if>
+            <if test="design17Pct != null">#{design17Pct},</if>
+            <if test="design18Pct != null">#{design18Pct},</if>
+            <if test="design19Pct != null">#{design19Pct},</if>
+            <if test="design20Pct != null">#{design20Pct},</if>
+            <if test="procurementSupportPct != null">#{procurementSupportPct},</if>
+            <if test="consultantPct != null">#{consultantPct},</if>
+            <if test="final1Pct != null">#{final1Pct},</if>
+            <if test="final2Pct != null">#{final2Pct},</if>
+            <if test="final3Pct != null">#{final3Pct},</if>
+            <if test="final4Pct != null">#{final4Pct},</if>
+            <if test="final5Pct != null">#{final5Pct},</if>
+            <if test="final6Pct != null">#{final6Pct},</if>
+            <if test="final7Pct != null">#{final7Pct},</if>
+            <if test="final8Pct != null">#{final8Pct},</if>
+            <if test="final9Pct != null">#{final9Pct},</if>
+            <if test="final10Pct != null">#{final10Pct},</if>
+            <if test="final11Pct != null">#{final11Pct},</if>
+            <if test="final12Pct != null">#{final12Pct},</if>
+            <if test="final13Pct != null">#{final13Pct},</if>
+            <if test="final14Pct != null">#{final14Pct},</if>
+            <if test="final15Pct != null">#{final15Pct},</if>
+            <if test="final16Pct != null">#{final16Pct},</if>
+            <if test="final17Pct != null">#{final17Pct},</if>
+            <if test="final18Pct != null">#{final18Pct},</if>
+            <if test="final19Pct != null">#{final19Pct},</if>
+            <if test="final20Pct != null">#{final20Pct},</if>
+            <if test="progress1 != null">#{progress1},</if>
+            <if test="progress2 != null">#{progress2},</if>
+            <if test="progress3 != null">#{progress3},</if>
+            <if test="progress4 != null">#{progress4},</if>
+            <if test="progress5 != null">#{progress5},</if>
+            <if test="progress6 != null">#{progress6},</if>
+            <if test="progress7 != null">#{progress7},</if>
+            <if test="progress8 != null">#{progress8},</if>
+            <if test="progress9 != null">#{progress9},</if>
+            <if test="progress10 != null">#{progress10},</if>
+            <if test="progress11 != null">#{progress11},</if>
+            <if test="progress12 != null">#{progress12},</if>
+            <if test="progress13 != null">#{progress13},</if>
+            <if test="progress14 != null">#{progress14},</if>
+            <if test="progress15 != null">#{progress15},</if>
+            <if test="progress16 != null">#{progress16},</if>
+            <if test="progress17 != null">#{progress17},</if>
+            <if test="progress18 != null">#{progress18},</if>
+            <if test="progress19 != null">#{progress19},</if>
+            <if test="progress20 != null">#{progress20},</if>
+            <if test="def1 != null">#{def1},</if>
+            <if test="def2 != null">#{def2},</if>
+            <if test="def3 != null">#{def3},</if>
+            <if test="def4 != null">#{def4},</if>
+            <if test="def5 != null">#{def5},</if>
+            <if test="def6 != null">#{def6},</if>
+            <if test="def7 != null">#{def7},</if>
+            <if test="def8 != null">#{def8},</if>
+            <if test="def9 != null">#{def9},</if>
+            <if test="def10 != null">#{def10},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSubitemsPlanning" parameterType="SubitemsPlanning">
+        update tb_subitems_planning
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="prjId != null">prj_id = #{prjId},</if>
+            <if test="itemId != null">item_id = #{itemId},</if>
+            <if test="profession != null">profession = #{profession},</if>
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="projectNo != null">project_no = #{projectNo},</if>
+            <if test="phaseNo != null">phase_no = #{phaseNo},</if>
+            <if test="itemNo != null and itemNo != ''">item_no = #{itemNo},</if>
+            <if test="itemName != null and itemName != ''">item_name = #{itemName},</if>
+            <if test="itemWeight != null">item_weight = #{itemWeight},</if>
+            <if test="proResp != null">pro_resp = #{proResp},</if>
+            <if test="eim != null">eim = #{eim},</if>
+            <if test="overallPlan != null">overall_plan = #{overallPlan},</if>
+            <if test="checker != null">checker = #{checker},</if>
+            <if test="reviewer != null">reviewer = #{reviewer},</if>
+            <if test="pipeReview != null">pipe_review = #{pipeReview},</if>
+            <if test="approval != null">approval = #{approval},</if>
+            <if test="designGuidance != null">design_guidance = #{designGuidance},</if>
+            <if test="design1 != null">design1 = #{design1},</if>
+            <if test="design2 != null">design2 = #{design2},</if>
+            <if test="design3 != null">design3 = #{design3},</if>
+            <if test="design4 != null">design4 = #{design4},</if>
+            <if test="design5 != null">design5 = #{design5},</if>
+            <if test="design6 != null">design6 = #{design6},</if>
+            <if test="design7 != null">design7 = #{design7},</if>
+            <if test="design8 != null">design8 = #{design8},</if>
+            <if test="design9 != null">design9 = #{design9},</if>
+            <if test="design10 != null">design10 = #{design10},</if>
+            <if test="design11 != null">design11 = #{design11},</if>
+            <if test="design12 != null">design12 = #{design12},</if>
+            <if test="design13 != null">design13 = #{design13},</if>
+            <if test="design14 != null">design14 = #{design14},</if>
+            <if test="design15 != null">design15 = #{design15},</if>
+            <if test="design16 != null">design16 = #{design16},</if>
+            <if test="design17 != null">design17 = #{design17},</if>
+            <if test="design18 != null">design18 = #{design18},</if>
+            <if test="design19 != null">design19 = #{design19},</if>
+            <if test="design20 != null">design20 = #{design20},</if>
+            <if test="procurementSupport != null">procurement_support = #{procurementSupport},</if>
+            <if test="consultant != null">consultant = #{consultant},</if>
+            <if test="proRespPct != null">pro_resp_pct = #{proRespPct},</if>
+            <if test="eimPct != null">eim_pct = #{eimPct},</if>
+            <if test="overallPlanPct != null">overall_plan_pct = #{overallPlanPct},</if>
+            <if test="checkerPct != null">checker_pct = #{checkerPct},</if>
+            <if test="reviewerPct != null">reviewer_pct = #{reviewerPct},</if>
+            <if test="pipeReviewPct != null">pipe_review_pct = #{pipeReviewPct},</if>
+            <if test="approvalPct != null">approval_pct = #{approvalPct},</if>
+            <if test="designGuidancePct != null">design_guidance_pct = #{designGuidancePct},</if>
+            <if test="design1Pct != null">design1_pct = #{design1Pct},</if>
+            <if test="design2Pct != null">design2_pct = #{design2Pct},</if>
+            <if test="design3Pct != null">design3_pct = #{design3Pct},</if>
+            <if test="design4Pct != null">design4_pct = #{design4Pct},</if>
+            <if test="design5Pct != null">design5_pct = #{design5Pct},</if>
+            <if test="design6Pct != null">design6_pct = #{design6Pct},</if>
+            <if test="design7Pct != null">design7_pct = #{design7Pct},</if>
+            <if test="design8Pct != null">design8_pct = #{design8Pct},</if>
+            <if test="design9Pct != null">design9_pct = #{design9Pct},</if>
+            <if test="design10Pct != null">design10_pct = #{design10Pct},</if>
+            <if test="design11Pct != null">design11_pct = #{design11Pct},</if>
+            <if test="design12Pct != null">design12_pct = #{design12Pct},</if>
+            <if test="design13Pct != null">design13_pct = #{design13Pct},</if>
+            <if test="design14Pct != null">design14_pct = #{design14Pct},</if>
+            <if test="design15Pct != null">design15_pct = #{design15Pct},</if>
+            <if test="design16Pct != null">design16_pct = #{design16Pct},</if>
+            <if test="design17Pct != null">design17_pct = #{design17Pct},</if>
+            <if test="design18Pct != null">design18_pct = #{design18Pct},</if>
+            <if test="design19Pct != null">design19_pct = #{design19Pct},</if>
+            <if test="design20Pct != null">design20_pct = #{design20Pct},</if>
+            <if test="procurementSupportPct != null">procurement_support_pct = #{procurementSupportPct},</if>
+            <if test="consultantPct != null">consultant_pct = #{consultantPct},</if>
+            <if test="final1Pct != null">final1_pct = #{final1Pct},</if>
+            <if test="final2Pct != null">final2_pct = #{final2Pct},</if>
+            <if test="final3Pct != null">final3_pct = #{final3Pct},</if>
+            <if test="final4Pct != null">final4_pct = #{final4Pct},</if>
+            <if test="final5Pct != null">final5_pct = #{final5Pct},</if>
+            <if test="final6Pct != null">final6_pct = #{final6Pct},</if>
+            <if test="final7Pct != null">final7_pct = #{final7Pct},</if>
+            <if test="final8Pct != null">final8_pct = #{final8Pct},</if>
+            <if test="final9Pct != null">final9_pct = #{final9Pct},</if>
+            <if test="final10Pct != null">final10_pct = #{final10Pct},</if>
+            <if test="final11Pct != null">final11_pct = #{final11Pct},</if>
+            <if test="final12Pct != null">final12_pct = #{final12Pct},</if>
+            <if test="final13Pct != null">final13_pct = #{final13Pct},</if>
+            <if test="final14Pct != null">final14_pct = #{final14Pct},</if>
+            <if test="final15Pct != null">final15_pct = #{final15Pct},</if>
+            <if test="final16Pct != null">final16_pct = #{final16Pct},</if>
+            <if test="final17Pct != null">final17_pct = #{final17Pct},</if>
+            <if test="final18Pct != null">final18_pct = #{final18Pct},</if>
+            <if test="final19Pct != null">final19_pct = #{final19Pct},</if>
+            <if test="final20Pct != null">final20_pct = #{final20Pct},</if>
+            <if test="progress1 != null">progress1 = #{progress1},</if>
+            <if test="progress2 != null">progress2 = #{progress2},</if>
+            <if test="progress3 != null">progress3 = #{progress3},</if>
+            <if test="progress4 != null">progress4 = #{progress4},</if>
+            <if test="progress5 != null">progress5 = #{progress5},</if>
+            <if test="progress6 != null">progress6 = #{progress6},</if>
+            <if test="progress7 != null">progress7 = #{progress7},</if>
+            <if test="progress8 != null">progress8 = #{progress8},</if>
+            <if test="progress9 != null">progress9 = #{progress9},</if>
+            <if test="progress10 != null">progress10 = #{progress10},</if>
+            <if test="progress11 != null">progress11 = #{progress11},</if>
+            <if test="progress12 != null">progress12 = #{progress12},</if>
+            <if test="progress13 != null">progress13 = #{progress13},</if>
+            <if test="progress14 != null">progress14 = #{progress14},</if>
+            <if test="progress15 != null">progress15 = #{progress15},</if>
+            <if test="progress16 != null">progress16 = #{progress16},</if>
+            <if test="progress17 != null">progress17 = #{progress17},</if>
+            <if test="progress18 != null">progress18 = #{progress18},</if>
+            <if test="progress19 != null">progress19 = #{progress19},</if>
+            <if test="progress20 != null">progress20 = #{progress20},</if>
+            <if test="def1 != null">def1 = #{def1},</if>
+            <if test="def2 != null">def2 = #{def2},</if>
+            <if test="def3 != null">def3 = #{def3},</if>
+            <if test="def4 != null">def4 = #{def4},</if>
+            <if test="def5 != null">def5 = #{def5},</if>
+            <if test="def6 != null">def6 = #{def6},</if>
+            <if test="def7 != null">def7 = #{def7},</if>
+            <if test="def8 != null">def8 = #{def8},</if>
+            <if test="def9 != null">def9 = #{def9},</if>
+            <if test="def10 != null">def10 = #{def10},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSubitemsPlanningById" parameterType="Long">
+        delete from tb_subitems_planning where id = #{id}
+    </delete>
+
+    <delete id="deleteSubitemsPlanningByIds" parameterType="String">
+        delete from tb_subitems_planning where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

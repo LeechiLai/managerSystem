@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cndc.business.mapper.ProfessionalAllocationBMapper">
+
+    <resultMap type="ProfessionalAllocationB" id="ProfessionalAllocationBResult">
+        <result property="id"    column="id"    />
+        <result property="headId"    column="head_id"    />
+        <result property="prjId"    column="prj_id"    />
+        <result property="projectName" column="project_name"/>
+        <result property="itemId"    column="item_id"    />
+        <result property="itemNo"    column="item_no"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemWeight"    column="item_weight"    />
+        <result property="proResp"    column="pro_resp"    />
+        <result property="eim"    column="eim"    />
+        <result property="overallPlan"    column="overall_plan"    />
+        <result property="checker"    column="checker"    />
+        <result property="reviewer"    column="reviewer"    />
+        <result property="pipeReview"    column="pipe_review"    />
+        <result property="approval"    column="approval"    />
+        <result property="designGuidance"    column="design_guidance"    />
+        <result property="design1"    column="design1"    />
+        <result property="design2"    column="design2"    />
+        <result property="design3"    column="design3"    />
+        <result property="design4"    column="design4"    />
+        <result property="design5"    column="design5"    />
+        <result property="design6"    column="design6"    />
+        <result property="design7"    column="design7"    />
+        <result property="design8"    column="design8"    />
+        <result property="design9"    column="design9"    />
+        <result property="design10"    column="design10"    />
+        <result property="design11"    column="design11"    />
+        <result property="design12"    column="design12"    />
+        <result property="design13"    column="design13"    />
+        <result property="design14"    column="design14"    />
+        <result property="design15"    column="design15"    />
+        <result property="design16"    column="design16"    />
+        <result property="design17"    column="design17"    />
+        <result property="design18"    column="design18"    />
+        <result property="design19"    column="design19"    />
+        <result property="design20"    column="design20"    />
+        <result property="procurementSupport"    column="procurement_support"    />
+        <result property="consultant"    column="consultant"    />
+        <result property="proRespPct"    column="pro_resp_pct"    />
+        <result property="eimPct"    column="eim_pct"    />
+        <result property="overallPlanPct"    column="overall_plan_pct"    />
+        <result property="checkerPct"    column="checker_pct"    />
+        <result property="reviewerPct"    column="reviewer_pct"    />
+        <result property="pipeReviewPct"    column="pipe_review_pct"    />
+        <result property="approvalPct"    column="approval_pct"    />
+        <result property="designGuidancePct"    column="design_guidance_pct"    />
+        <result property="design1Pct"    column="design1_pct"    />
+        <result property="design2Pct"    column="design2_pct"    />
+        <result property="design3Pct"    column="design3_pct"    />
+        <result property="design4Pct"    column="design4_pct"    />
+        <result property="design5Pct"    column="design5_pct"    />
+        <result property="design6Pct"    column="design6_pct"    />
+        <result property="design7Pct"    column="design7_pct"    />
+        <result property="design8Pct"    column="design8_pct"    />
+        <result property="design9Pct"    column="design9_pct"    />
+        <result property="design10Pct"    column="design10_pct"    />
+        <result property="design11Pct"    column="design11_pct"    />
+        <result property="design12Pct"    column="design12_pct"    />
+        <result property="design13Pct"    column="design13_pct"    />
+        <result property="design14Pct"    column="design14_pct"    />
+        <result property="design15Pct"    column="design15_pct"    />
+        <result property="design16Pct"    column="design16_pct"    />
+        <result property="design17Pct"    column="design17_pct"    />
+        <result property="design18Pct"    column="design18_pct"    />
+        <result property="design19Pct"    column="design19_pct"    />
+        <result property="design20Pct"    column="design20_pct"    />
+        <result property="procurementSupportPct"    column="procurement_support_pct"    />
+        <result property="consultantPct"    column="consultant_pct"    />
+        <result property="final1Pct"    column="final1_pct"    />
+        <result property="final2Pct"    column="final2_pct"    />
+        <result property="final3Pct"    column="final3_pct"    />
+        <result property="final4Pct"    column="final4_pct"    />
+        <result property="final5Pct"    column="final5_pct"    />
+        <result property="final6Pct"    column="final6_pct"    />
+        <result property="final7Pct"    column="final7_pct"    />
+        <result property="final8Pct"    column="final8_pct"    />
+        <result property="final9Pct"    column="final9_pct"    />
+        <result property="final10Pct"    column="final10_pct"    />
+        <result property="final11Pct"    column="final11_pct"    />
+        <result property="final12Pct"    column="final12_pct"    />
+        <result property="final13Pct"    column="final13_pct"    />
+        <result property="final14Pct"    column="final14_pct"    />
+        <result property="final15Pct"    column="final15_pct"    />
+        <result property="final16Pct"    column="final16_pct"    />
+        <result property="final17Pct"    column="final17_pct"    />
+        <result property="final18Pct"    column="final18_pct"    />
+        <result property="final19Pct"    column="final19_pct"    />
+        <result property="final20Pct"    column="final20_pct"    />
+        <result property="progress1"    column="progress1"    />
+        <result property="progress2"    column="progress2"    />
+        <result property="progress3"    column="progress3"    />
+        <result property="progress4"    column="progress4"    />
+        <result property="progress5"    column="progress5"    />
+        <result property="progress6"    column="progress6"    />
+        <result property="progress7"    column="progress7"    />
+        <result property="progress8"    column="progress8"    />
+        <result property="progress9"    column="progress9"    />
+        <result property="progress10"    column="progress10"    />
+        <result property="progress11"    column="progress11"    />
+        <result property="progress12"    column="progress12"    />
+        <result property="progress13"    column="progress13"    />
+        <result property="progress14"    column="progress14"    />
+        <result property="progress15"    column="progress15"    />
+        <result property="progress16"    column="progress16"    />
+        <result property="progress17"    column="progress17"    />
+        <result property="progress18"    column="progress18"    />
+        <result property="progress19"    column="progress19"    />
+        <result property="progress20"    column="progress20"    />
+        <result property="def1"    column="def1"    />
+        <result property="def2"    column="def2"    />
+        <result property="def3"    column="def3"    />
+        <result property="def4"    column="def4"    />
+        <result property="def5"    column="def5"    />
+        <result property="def6"    column="def6"    />
+        <result property="def7"    column="def7"    />
+        <result property="def8"    column="def8"    />
+        <result property="def9"    column="def9"    />
+        <result property="def10"    column="def10"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="userId"    column="user_id"    />
+        <!-- 新增字段映射 -->
+        <result property="proRespProgress" column="proRespProgress"/>
+        <result property="proRespFinalPct" column="proRespFinalPct"/>
+        <result property="proRespMaxProgressAmount" column="proRespMaxProgressAmount"/>
+        <result property="proRespIssuedAmount" column="proRespIssuedAmount"/>
+        <result property="eimProgress" column="eimProgress"/>
+        <result property="eimFinalPct" column="eimFinalPct"/>
+        <result property="eimMaxProgressAmount" column="eimMaxProgressAmount"/>
+        <result property="eimIssuedAmount" column="eimIssuedAmount"/>
+        <result property="overallPlanProgress" column="overallPlanProgress"/>
+        <result property="overallPlanFinalPct" column="overallPlanFinalPct"/>
+        <result property="overallPlanMaxProgressAmount" column="overallPlanMaxProgressAmount"/>
+        <result property="overallPlanIssuedAmount" column="overallPlanIssuedAmount"/>
+        <result property="checkerProgress" column="checkerProgress"/>
+        <result property="checkerFinalPct" column="checkerFinalPct"/>
+        <result property="checkerMaxProgressAmount" column="checkerMaxProgressAmount"/>
+        <result property="checkerIssuedAmount" column="checkerIssuedAmount"/>
+        <result property="reviewerProgress" column="reviewerProgress"/>
+        <result property="reviewerFinalPct" column="reviewerFinalPct"/>
+        <result property="reviewerMaxProgressAmount" column="reviewerMaxProgressAmount"/>
+        <result property="reviewerIssuedAmount" column="reviewerIssuedAmount"/>
+        <result property="pipeReviewProgress" column="pipeReviewProgress"/>
+        <result property="pipeReviewFinalPct" column="pipeReviewFinalPct"/>
+        <result property="pipeReviewMaxProgressAmount" column="pipeReviewMaxProgressAmount"/>
+        <result property="pipeReviewIssuedAmount" column="pipeReviewIssuedAmount"/>
+        <result property="approvalProgress" column="approvalProgress"/>
+        <result property="approvalFinalPct" column="approvalFinalPct"/>
+        <result property="approvalMaxProgressAmount" column="approvalMaxProgressAmount"/>
+        <result property="approvalIssuedAmount" column="approvalIssuedAmount"/>
+        <result property="designGuidanceProgress" column="designGuidanceProgress"/>
+        <result property="designGuidanceFinalPct" column="designGuidanceFinalPct"/>
+        <result property="designGuidanceMaxProgressAmount" column="designGuidanceMaxProgressAmount"/>
+        <result property="designGuidanceIssuedAmount" column="designGuidanceIssuedAmount"/>
+        <result property="consultantProgress" column="consultantProgress"/>
+        <result property="consultantFinalPct" column="consultantFinalPct"/>
+        <result property="consultantMaxProgressAmount" column="consultantMaxProgressAmount"/>
+        <result property="consultantIssuedAmount" column="consultantIssuedAmount"/>
+        <result property="procurementSupportProgress" column="procurementSupportProgress"/>
+        <result property="procurementSupportFinalPct" column="procurementSupportFinalPct"/>
+        <result property="procurementSupportMaxProgressAmount" column="procurementSupportMaxProgressAmount"/>
+        <result property="procurementSupportIssuedAmount" column="procurementSupportIssuedAmount"/>
+        <result property="design1MaxProgressAmount" column="design1MaxProgressAmount"/>
+        <result property="design1IssuedAmount" column="design1IssuedAmount"/>
+        <result property="design2MaxProgressAmount" column="design2MaxProgressAmount"/>
+        <result property="design2IssuedAmount" column="design2IssuedAmount"/>
+        <result property="design3MaxProgressAmount" column="design3MaxProgressAmount"/>
+        <result property="design3IssuedAmount" column="design3IssuedAmount"/>
+        <result property="design4MaxProgressAmount" column="design4MaxProgressAmount"/>
+        <result property="design4IssuedAmount" column="design4IssuedAmount"/>
+        <result property="design5MaxProgressAmount" column="design5MaxProgressAmount"/>
+        <result property="design5IssuedAmount" column="design5IssuedAmount"/>
+        <result property="design6MaxProgressAmount" column="design6MaxProgressAmount"/>
+        <result property="design6IssuedAmount" column="design6IssuedAmount"/>
+        <result property="design7MaxProgressAmount" column="design7MaxProgressAmount"/>
+        <result property="design7IssuedAmount" column="design7IssuedAmount"/>
+        <result property="design8MaxProgressAmount" column="design8MaxProgressAmount"/>
+        <result property="design8IssuedAmount" column="design8IssuedAmount"/>
+        <result property="design9MaxProgressAmount" column="design9MaxProgressAmount"/>
+        <result property="design9IssuedAmount" column="design9IssuedAmount"/>
+        <result property="design10MaxProgressAmount" column="design10MaxProgressAmount"/>
+        <result property="design10IssuedAmount" column="design10IssuedAmount"/>
+        <result property="design11MaxProgressAmount" column="design11MaxProgressAmount"/>
+        <result property="design11IssuedAmount" column="design11IssuedAmount"/>
+        <result property="design12MaxProgressAmount" column="design12MaxProgressAmount"/>
+        <result property="design12IssuedAmount" column="design12IssuedAmount"/>
+        <result property="design13MaxProgressAmount" column="design13MaxProgressAmount"/>
+        <result property="design13IssuedAmount" column="design13IssuedAmount"/>
+        <result property="design14MaxProgressAmount" column="design14MaxProgressAmount"/>
+        <result property="design14IssuedAmount" column="design14IssuedAmount"/>
+        <result property="design15MaxProgressAmount" column="design15MaxProgressAmount"/>
+        <result property="design15IssuedAmount" column="design15IssuedAmount"/>
+        <result property="design16MaxProgressAmount" column="design16MaxProgressAmount"/>
+        <result property="design16IssuedAmount" column="design16IssuedAmount"/>
+        <result property="design17MaxProgressAmount" column="design17MaxProgressAmount"/>
+        <result property="design17IssuedAmount" column="design17IssuedAmount"/>
+        <result property="design18MaxProgressAmount" column="design18MaxProgressAmount"/>
+        <result property="design18IssuedAmount" column="design18IssuedAmount"/>
+        <result property="design19MaxProgressAmount" column="design19MaxProgressAmount"/>
+        <result property="design19IssuedAmount" column="design19IssuedAmount"/>
+        <result property="design20MaxProgressAmount" column="design20MaxProgressAmount"/>
+        <result property="design20IssuedAmount" column="design20IssuedAmount"/>
+    </resultMap>
+
+    <sql id="selectProfessionalAllocationBVo">
+         select id, head_id, prj_id,project_name, item_id, item_no, item_name, item_weight, pro_resp, eim, overall_plan, checker, reviewer, pipe_review,
+               approval, design_guidance, design1, design2, design3, design4, design5, design6, design7, design8, design9, design10, design11,
+               design12, design13, design14, design15, design16, design17, design18, design19, design20, procurement_support, consultant,
+               pro_resp_pct, eim_pct, overall_plan_pct, checker_pct, reviewer_pct, pipe_review_pct, approval_pct, design_guidance_pct,
+               design1_pct, design2_pct, design3_pct, design4_pct, design5_pct, design6_pct, design7_pct, design8_pct, design9_pct, design10_pct,
+               design11_pct, design12_pct, design13_pct, design14_pct, design15_pct, design16_pct, design17_pct, design18_pct, design19_pct,
+               design20_pct, procurement_support_pct, consultant_pct, final1_pct, final2_pct, final3_pct, final4_pct, final5_pct, final6_pct,
+               final7_pct, final8_pct, final9_pct, final10_pct, final11_pct, final12_pct, final13_pct, final14_pct, final15_pct, final16_pct,
+               final17_pct, final18_pct, final19_pct, final20_pct, progress1, progress2, progress3, progress4, progress5, progress6, progress7,
+               progress8, progress9, progress10, progress11, progress12, progress13, progress14, progress15, progress16, progress17, progress18,
+               progress19, progress20, def1, def2, def3, def4, def5, def6, def7, def8, def9, def10, del_flag, create_by, create_time, update_by,
+               update_time, remark,dept_id,user_id,
+               proRespProgress, proRespFinalPct, proRespMaxProgressAmount, proRespIssuedAmount,
+               eimProgress, eimFinalPct, eimMaxProgressAmount, eimIssuedAmount,
+               overallPlanProgress, overallPlanFinalPct, overallPlanMaxProgressAmount, overallPlanIssuedAmount,
+               checkerProgress, checkerFinalPct, checkerMaxProgressAmount, checkerIssuedAmount,
+               reviewerProgress, reviewerFinalPct, reviewerMaxProgressAmount, reviewerIssuedAmount,
+               pipeReviewProgress, pipeReviewFinalPct, pipeReviewMaxProgressAmount, pipeReviewIssuedAmount,
+               approvalProgress, approvalFinalPct, approvalMaxProgressAmount, approvalIssuedAmount,
+               designGuidanceProgress, designGuidanceFinalPct, designGuidanceMaxProgressAmount, designGuidanceIssuedAmount,
+               consultantProgress, consultantFinalPct, consultantMaxProgressAmount, consultantIssuedAmount,
+               procurementSupportProgress, procurementSupportFinalPct, procurementSupportMaxProgressAmount, procurementSupportIssuedAmount,
+               design1MaxProgressAmount, design1IssuedAmount,
+               design2MaxProgressAmount, design2IssuedAmount,
+               design3MaxProgressAmount, design3IssuedAmount,
+               design4MaxProgressAmount, design4IssuedAmount,
+               design5MaxProgressAmount, design5IssuedAmount,
+               design6MaxProgressAmount, design6IssuedAmount,
+               design7MaxProgressAmount, design7IssuedAmount,
+               design8MaxProgressAmount, design8IssuedAmount,
+               design9MaxProgressAmount, design9IssuedAmount,
+               design10MaxProgressAmount, design10IssuedAmount,
+               design11MaxProgressAmount, design11IssuedAmount,
+               design12MaxProgressAmount, design12IssuedAmount,
+               design13MaxProgressAmount, design13IssuedAmount,
+               design14MaxProgressAmount, design14IssuedAmount,
+               design15MaxProgressAmount, design15IssuedAmount,
+               design16MaxProgressAmount, design16IssuedAmount,
+               design17MaxProgressAmount, design17IssuedAmount,
+               design18MaxProgressAmount, design18IssuedAmount,
+               design19MaxProgressAmount, design19IssuedAmount,
+               design20MaxProgressAmount, design20IssuedAmount
+        from tb_professional_allocation_b
+    </sql>
+
+    <select id="selectProfessionalAllocationBList" parameterType="ProfessionalAllocationB" resultMap="ProfessionalAllocationBResult">
+        <include refid="selectProfessionalAllocationBVo"/>
+        <where>
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="itemNo != null  and itemNo != ''"> and item_no = #{itemNo}</if>
+            <if test="itemName != null  and itemName != ''"> and item_name like concat('%', #{itemName}, '%')</if>
+        </where>
+        order by create_time,project_name desc
+    </select>
+
+    <select id="selectProfessionalAllocationBById" parameterType="Long" resultMap="ProfessionalAllocationBResult">
+         <include refid="selectProfessionalAllocationBVo"/>
+        where id = #{id}
+    </select>
+    <!-- 新增查询语句 -->
+    <select id="selectByPrjIdAndHeadId" parameterType="map" resultMap="ProfessionalAllocationBResult">
+        SELECT
+           *
+        FROM tb_professional_allocation_b b
+                 JOIN tb_professional_allocation a ON b.head_id = a.id
+        WHERE a.prj_id = #{prjId} AND a.profession = #{profession}
+    </select>
+    <insert id="insertProfessionalAllocationB" parameterType="ProfessionalAllocationB" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_professional_allocation_b
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="headId != null">head_id,</if>
+            <if test="prjId != null">prj_id,</if>
+            <if test="projectName != null">project_name,</if>
+            <if test="itemId != null">item_id,</if>
+            <if test="itemNo != null and itemNo != ''">item_no,</if>
+            <if test="itemName != null and itemName != ''">item_name,</if>
+            <if test="itemWeight != null">item_weight,</if>
+            <if test="proResp != null">pro_resp,</if>
+            <if test="eim != null">eim,</if>
+            <if test="overallPlan != null">overall_plan,</if>
+            <if test="checker != null">checker,</if>
+            <if test="reviewer != null">reviewer,</if>
+            <if test="pipeReview != null">pipe_review,</if>
+            <if test="approval != null">approval,</if>
+            <if test="designGuidance != null">design_guidance,</if>
+            <if test="design1 != null">design1,</if>
+            <if test="design2 != null">design2,</if>
+            <if test="design3 != null">design3,</if>
+            <if test="design4 != null">design4,</if>
+            <if test="design5 != null">design5,</if>
+            <if test="design6 != null">design6,</if>
+            <if test="design7 != null">design7,</if>
+            <if test="design8 != null">design8,</if>
+            <if test="design9 != null">design9,</if>
+            <if test="design10 != null">design10,</if>
+            <if test="design11 != null">design11,</if>
+            <if test="design12 != null">design12,</if>
+            <if test="design13 != null">design13,</if>
+            <if test="design14 != null">design14,</if>
+            <if test="design15 != null">design15,</if>
+            <if test="design16 != null">design16,</if>
+            <if test="design17 != null">design17,</if>
+            <if test="design18 != null">design18,</if>
+            <if test="design19 != null">design19,</if>
+            <if test="design20 != null">design20,</if>
+            <if test="procurementSupport != null">procurement_support,</if>
+            <if test="consultant != null">consultant,</if>
+            <if test="proRespPct != null">pro_resp_pct,</if>
+            <if test="eimPct != null">eim_pct,</if>
+            <if test="overallPlanPct != null">overall_plan_pct,</if>
+            <if test="checkerPct != null">checker_pct,</if>
+            <if test="reviewerPct != null">reviewer_pct,</if>
+            <if test="pipeReviewPct != null">pipe_review_pct,</if>
+            <if test="approvalPct != null">approval_pct,</if>
+            <if test="designGuidancePct != null">design_guidance_pct,</if>
+            <if test="design1Pct != null">design1_pct,</if>
+            <if test="design2Pct != null">design2_pct,</if>
+            <if test="design3Pct != null">design3_pct,</if>
+            <if test="design4Pct != null">design4_pct,</if>
+            <if test="design5Pct != null">design5_pct,</if>
+            <if test="design6Pct != null">design6_pct,</if>
+            <if test="design7Pct != null">design7_pct,</if>
+            <if test="design8Pct != null">design8_pct,</if>
+            <if test="design9Pct != null">design9_pct,</if>
+            <if test="design10Pct != null">design10_pct,</if>
+            <if test="design11Pct != null">design11_pct,</if>
+            <if test="design12Pct != null">design12_pct,</if>
+            <if test="design13Pct != null">design13_pct,</if>
+            <if test="design14Pct != null">design14_pct,</if>
+            <if test="design15Pct != null">design15_pct,</if>
+            <if test="design16Pct != null">design16_pct,</if>
+            <if test="design17Pct != null">design17_pct,</if>
+            <if test="design18Pct != null">design18_pct,</if>
+            <if test="design19Pct != null">design19_pct,</if>
+            <if test="design20Pct != null">design20_pct,</if>
+            <if test="procurementSupportPct != null">procurement_support_pct,</if>
+            <if test="consultantPct != null">consultant_pct,</if>
+            <if test="final1Pct != null">final1_pct,</if>
+            <if test="final2Pct != null">final2_pct,</if>
+            <if test="final3Pct != null">final3_pct,</if>
+            <if test="final4Pct != null">final4_pct,</if>
+            <if test="final5Pct != null">final5_pct,</if>
+            <if test="final6Pct != null">final6_pct,</if>
+            <if test="final7Pct != null">final7_pct,</if>
+            <if test="final8Pct != null">final8_pct,</if>
+            <if test="final9Pct != null">final9_pct,</if>
+            <if test="final10Pct != null">final10_pct,</if>
+            <if test="final11Pct != null">final11_pct,</if>
+            <if test="final12Pct != null">final12_pct,</if>
+            <if test="final13Pct != null">final13_pct,</if>
+            <if test="final14Pct != null">final14_pct,</if>
+            <if test="final15Pct != null">final15_pct,</if>
+            <if test="final16Pct != null">final16_pct,</if>
+            <if test="final17Pct != null">final17_pct,</if>
+            <if test="final18Pct != null">final18_pct,</if>
+            <if test="final19Pct != null">final19_pct,</if>
+            <if test="final20Pct != null">final20_pct,</if>
+            <if test="progress1 != null">progress1,</if>
+            <if test="progress2 != null">progress2,</if>
+            <if test="progress3 != null">progress3,</if>
+            <if test="progress4 != null">progress4,</if>
+            <if test="progress5 != null">progress5,</if>
+            <if test="progress6 != null">progress6,</if>
+            <if test="progress7 != null">progress7,</if>
+            <if test="progress8 != null">progress8,</if>
+            <if test="progress9 != null">progress9,</if>
+            <if test="progress10 != null">progress10,</if>
+            <if test="progress11 != null">progress11,</if>
+            <if test="progress12 != null">progress12,</if>
+            <if test="progress13 != null">progress13,</if>
+            <if test="progress14 != null">progress14,</if>
+            <if test="progress15 != null">progress15,</if>
+            <if test="progress16 != null">progress16,</if>
+            <if test="progress17 != null">progress17,</if>
+            <if test="progress18 != null">progress18,</if>
+            <if test="progress19 != null">progress19,</if>
+            <if test="progress20 != null">progress20,</if>
+            <if test="def1 != null">def1,</if>
+            <if test="def2 != null">def2,</if>
+            <if test="def3 != null">def3,</if>
+            <if test="def4 != null">def4,</if>
+            <if test="def5 != null">def5,</if>
+            <if test="def6 != null">def6,</if>
+            <if test="def7 != null">def7,</if>
+            <if test="def8 != null">def8,</if>
+            <if test="def9 != null">def9,</if>
+            <if test="def10 != null">def10,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="userId != null">user_id,</if>
+            <!-- 新增字段 -->
+            <if test="proRespProgress != null">proRespProgress,</if>
+            <if test="proRespFinalPct != null">proRespFinalPct,</if>
+            <if test="proRespMaxProgressAmount != null">proRespMaxProgressAmount,</if>
+            <if test="proRespIssuedAmount != null">proRespIssuedAmount,</if>
+            <if test="eimProgress != null">eimProgress,</if>
+            <if test="eimFinalPct != null">eimFinalPct,</if>
+            <if test="eimMaxProgressAmount != null">eimMaxProgressAmount,</if>
+            <if test="eimIssuedAmount != null">eimIssuedAmount,</if>
+            <if test="overallPlanProgress != null">overallPlanProgress,</if>
+            <if test="overallPlanFinalPct != null">overallPlanFinalPct,</if>
+            <if test="overallPlanMaxProgressAmount != null">overallPlanMaxProgressAmount,</if>
+            <if test="overallPlanIssuedAmount != null">overallPlanIssuedAmount,</if>
+            <if test="checkerProgress != null">checkerProgress,</if>
+            <if test="checkerFinalPct != null">checkerFinalPct,</if>
+            <if test="checkerMaxProgressAmount != null">checkerMaxProgressAmount,</if>
+            <if test="checkerIssuedAmount != null">checkerIssuedAmount,</if>
+            <if test="reviewerProgress != null">reviewerProgress,</if>
+            <if test="reviewerFinalPct != null">reviewerFinalPct,</if>
+            <if test="reviewerMaxProgressAmount != null">reviewerMaxProgressAmount,</if>
+            <if test="reviewerIssuedAmount != null">reviewerIssuedAmount,</if>
+            <if test="pipeReviewProgress != null">pipeReviewProgress,</if>
+            <if test="pipeReviewFinalPct != null">pipeReviewFinalPct,</if>
+            <if test="pipeReviewMaxProgressAmount != null">pipeReviewMaxProgressAmount,</if>
+            <if test="pipeReviewIssuedAmount != null">pipeReviewIssuedAmount,</if>
+            <if test="approvalProgress != null">approvalProgress,</if>
+            <if test="approvalFinalPct != null">approvalFinalPct,</if>
+            <if test="approvalMaxProgressAmount != null">approvalMaxProgressAmount,</if>
+            <if test="approvalIssuedAmount != null">approvalIssuedAmount,</if>
+            <if test="designGuidanceProgress != null">designGuidanceProgress,</if>
+            <if test="designGuidanceFinalPct != null">designGuidanceFinalPct,</if>
+            <if test="designGuidanceMaxProgressAmount != null">designGuidanceMaxProgressAmount,</if>
+            <if test="designGuidanceIssuedAmount != null">designGuidanceIssuedAmount,</if>
+            <if test="consultantProgress != null">consultantProgress,</if>
+            <if test="consultantFinalPct != null">consultantFinalPct,</if>
+            <if test="consultantMaxProgressAmount != null">consultantMaxProgressAmount,</if>
+            <if test="consultantIssuedAmount != null">consultantIssuedAmount,</if>
+            <if test="procurementSupportProgress != null">procurementSupportProgress,</if>
+            <if test="procurementSupportFinalPct != null">procurementSupportFinalPct,</if>
+            <if test="procurementSupportMaxProgressAmount != null">procurementSupportMaxProgressAmount,</if>
+            <if test="procurementSupportIssuedAmount != null">procurementSupportIssuedAmount,</if>
+            <if test="design1MaxProgressAmount != null">design1MaxProgressAmount,</if>
+            <if test="design1IssuedAmount != null">design1IssuedAmount,</if>
+            <if test="design2MaxProgressAmount != null">design2MaxProgressAmount,</if>
+            <if test="design2IssuedAmount != null">design2IssuedAmount,</if>
+            <if test="design3MaxProgressAmount != null">design3MaxProgressAmount,</if>
+            <if test="design3IssuedAmount != null">design3IssuedAmount,</if>
+            <if test="design4MaxProgressAmount != null">design4MaxProgressAmount,</if>
+            <if test="design4IssuedAmount != null">design4IssuedAmount,</if>
+            <if test="design5MaxProgressAmount != null">design5MaxProgressAmount,</if>
+            <if test="design5IssuedAmount != null">design5IssuedAmount,</if>
+            <if test="design6MaxProgressAmount != null">design6MaxProgressAmount,</if>
+            <if test="design6IssuedAmount != null">design6IssuedAmount,</if>
+            <if test="design7MaxProgressAmount != null">design7MaxProgressAmount,</if>
+            <if test="design7IssuedAmount != null">design7IssuedAmount,</if>
+            <if test="design8MaxProgressAmount != null">design8MaxProgressAmount,</if>
+            <if test="design8IssuedAmount != null">design8IssuedAmount,</if>
+            <if test="design9MaxProgressAmount != null">design9MaxProgressAmount,</if>
+            <if test="design9IssuedAmount != null">design9IssuedAmount,</if>
+            <if test="design10MaxProgressAmount != null">design10MaxProgressAmount,</if>
+            <if test="design10IssuedAmount != null">design10IssuedAmount,</if>
+            <if test="design11MaxProgressAmount != null">design11MaxProgressAmount,</if>
+            <if test="design11IssuedAmount != null">design11IssuedAmount,</if>
+            <if test="design12MaxProgressAmount != null">design12MaxProgressAmount,</if>
+            <if test="design12IssuedAmount != null">design12IssuedAmount,</if>
+            <if test="design13MaxProgressAmount != null">design13MaxProgressAmount,</if>
+            <if test="design13IssuedAmount != null">design13IssuedAmount,</if>
+            <if test="design14MaxProgressAmount != null">design14MaxProgressAmount,</if>
+            <if test="design14IssuedAmount != null">design14IssuedAmount,</if>
+            <if test="design15MaxProgressAmount != null">design15MaxProgressAmount,</if>
+            <if test="design15IssuedAmount != null">design15IssuedAmount,</if>
+            <if test="design16MaxProgressAmount != null">design16MaxProgressAmount,</if>
+            <if test="design16IssuedAmount != null">design16IssuedAmount,</if>
+            <if test="design17MaxProgressAmount != null">design17MaxProgressAmount,</if>
+            <if test="design17IssuedAmount != null">design17IssuedAmount,</if>
+            <if test="design18MaxProgressAmount != null">design18MaxProgressAmount,</if>
+            <if test="design18IssuedAmount != null">design18IssuedAmount,</if>
+            <if test="design19MaxProgressAmount != null">design19MaxProgressAmount,</if>
+            <if test="design19IssuedAmount != null">design19IssuedAmount,</if>
+            <if test="design20MaxProgressAmount != null">design20MaxProgressAmount,</if>
+            <if test="design20IssuedAmount != null">design20IssuedAmount,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="headId != null">#{headId},</if>
+            <if test="prjId != null">#{prjId},</if>
+            <if test="projectName != null">#{projectName},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="itemNo != null and itemNo != ''">#{itemNo},</if>
+            <if test="itemName != null and itemName != ''">#{itemName},</if>
+            <if test="itemWeight != null">#{itemWeight},</if>
+            <if test="proResp != null">#{proResp},</if>
+            <if test="eim != null">#{eim},</if>
+            <if test="overallPlan != null">#{overallPlan},</if>
+            <if test="checker != null">#{checker},</if>
+            <if test="reviewer != null">#{reviewer},</if>
+            <if test="pipeReview != null">#{pipeReview},</if>
+            <if test="approval != null">#{approval},</if>
+            <if test="designGuidance != null">#{designGuidance},</if>
+            <if test="design1 != null">#{design1},</if>
+            <if test="design2 != null">#{design2},</if>
+            <if test="design3 != null">#{design3},</if>
+            <if test="design4 != null">#{design4},</if>
+            <if test="design5 != null">#{design5},</if>
+            <if test="design6 != null">#{design6},</if>
+            <if test="design7 != null">#{design7},</if>
+            <if test="design8 != null">#{design8},</if>
+            <if test="design9 != null">#{design9},</if>
+            <if test="design10 != null">#{design10},</if>
+            <if test="design11 != null">#{design11},</if>
+            <if test="design12 != null">#{design12},</if>
+            <if test="design13 != null">#{design13},</if>
+            <if test="design14 != null">#{design14},</if>
+            <if test="design15 != null">#{design15},</if>
+            <if test="design16 != null">#{design16},</if>
+            <if test="design17 != null">#{design17},</if>
+            <if test="design18 != null">#{design18},</if>
+            <if test="design19 != null">#{design19},</if>
+            <if test="design20 != null">#{design20},</if>
+            <if test="procurementSupport != null">#{procurementSupport},</if>
+            <if test="consultant != null">#{consultant},</if>
+            <if test="proRespPct != null">#{proRespPct},</if>
+            <if test="eimPct != null">#{eimPct},</if>
+            <if test="overallPlanPct != null">#{overallPlanPct},</if>
+            <if test="checkerPct != null">#{checkerPct},</if>
+            <if test="reviewerPct != null">#{reviewerPct},</if>
+            <if test="pipeReviewPct != null">#{pipeReviewPct},</if>
+            <if test="approvalPct != null">#{approvalPct},</if>
+            <if test="designGuidancePct != null">#{designGuidancePct},</if>
+            <if test="design1Pct != null">#{design1Pct},</if>
+            <if test="design2Pct != null">#{design2Pct},</if>
+            <if test="design3Pct != null">#{design3Pct},</if>
+            <if test="design4Pct != null">#{design4Pct},</if>
+            <if test="design5Pct != null">#{design5Pct},</if>
+            <if test="design6Pct != null">#{design6Pct},</if>
+            <if test="design7Pct != null">#{design7Pct},</if>
+            <if test="design8Pct != null">#{design8Pct},</if>
+            <if test="design9Pct != null">#{design9Pct},</if>
+            <if test="design10Pct != null">#{design10Pct},</if>
+            <if test="design11Pct != null">#{design11Pct},</if>
+            <if test="design12Pct != null">#{design12Pct},</if>
+            <if test="design13Pct != null">#{design13Pct},</if>
+            <if test="design14Pct != null">#{design14Pct},</if>
+            <if test="design15Pct != null">#{design15Pct},</if>
+            <if test="design16Pct != null">#{design16Pct},</if>
+            <if test="design17Pct != null">#{design17Pct},</if>
+            <if test="design18Pct != null">#{design18Pct},</if>
+            <if test="design19Pct != null">#{design19Pct},</if>
+            <if test="design20Pct != null">#{design20Pct},</if>
+            <if test="procurementSupportPct != null">#{procurementSupportPct},</if>
+            <if test="consultantPct != null">#{consultantPct},</if>
+            <if test="final1Pct != null">#{final1Pct},</if>
+            <if test="final2Pct != null">#{final2Pct},</if>
+            <if test="final3Pct != null">#{final3Pct},</if>
+            <if test="final4Pct != null">#{final4Pct},</if>
+            <if test="final5Pct != null">#{final5Pct},</if>
+            <if test="final6Pct != null">#{final6Pct},</if>
+            <if test="final7Pct != null">#{final7Pct},</if>
+            <if test="final8Pct != null">#{final8Pct},</if>
+            <if test="final9Pct != null">#{final9Pct},</if>
+            <if test="final10Pct != null">#{final10Pct},</if>
+            <if test="final11Pct != null">#{final11Pct},</if>
+            <if test="final12Pct != null">#{final12Pct},</if>
+            <if test="final13Pct != null">#{final13Pct},</if>
+            <if test="final14Pct != null">#{final14Pct},</if>
+            <if test="final15Pct != null">#{final15Pct},</if>
+            <if test="final16Pct != null">#{final16Pct},</if>
+            <if test="final17Pct != null">#{final17Pct},</if>
+            <if test="final18Pct != null">#{final18Pct},</if>
+            <if test="final19Pct != null">#{final19Pct},</if>
+            <if test="final20Pct != null">#{final20Pct},</if>
+            <if test="progress1 != null">#{progress1},</if>
+            <if test="progress2 != null">#{progress2},</if>
+            <if test="progress3 != null">#{progress3},</if>
+            <if test="progress4 != null">#{progress4},</if>
+            <if test="progress5 != null">#{progress5},</if>
+            <if test="progress6 != null">#{progress6},</if>
+            <if test="progress7 != null">#{progress7},</if>
+            <if test="progress8 != null">#{progress8},</if>
+            <if test="progress9 != null">#{progress9},</if>
+            <if test="progress10 != null">#{progress10},</if>
+            <if test="progress11 != null">#{progress11},</if>
+            <if test="progress12 != null">#{progress12},</if>
+            <if test="progress13 != null">#{progress13},</if>
+            <if test="progress14 != null">#{progress14},</if>
+            <if test="progress15 != null">#{progress15},</if>
+            <if test="progress16 != null">#{progress16},</if>
+            <if test="progress17 != null">#{progress17},</if>
+            <if test="progress18 != null">#{progress18},</if>
+            <if test="progress19 != null">#{progress19},</if>
+            <if test="progress20 != null">#{progress20},</if>
+            <if test="def1 != null">#{def1},</if>
+            <if test="def2 != null">#{def2},</if>
+            <if test="def3 != null">#{def3},</if>
+            <if test="def4 != null">#{def4},</if>
+            <if test="def5 != null">#{def5},</if>
+            <if test="def6 != null">#{def6},</if>
+            <if test="def7 != null">#{def7},</if>
+            <if test="def8 != null">#{def8},</if>
+            <if test="def9 != null">#{def9},</if>
+            <if test="def10 != null">#{def10},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="userId != null">#{userId},</if>
+
+            <!-- 新增字段 -->
+            <if test="proRespProgress != null">#{proRespProgress},</if>
+            <if test="proRespFinalPct != null">#{proRespFinalPct},</if>
+            <if test="proRespMaxProgressAmount != null">#{proRespMaxProgressAmount},</if>
+            <if test="proRespIssuedAmount != null">#{proRespIssuedAmount},</if>
+            <if test="eimProgress != null">#{eimProgress},</if>
+            <if test="eimFinalPct != null">#{eimFinalPct},</if>
+            <if test="eimMaxProgressAmount != null">#{eimMaxProgressAmount},</if>
+            <if test="eimIssuedAmount != null">#{eimIssuedAmount},</if>
+            <if test="overallPlanProgress != null">#{overallPlanProgress},</if>
+            <if test="overallPlanFinalPct != null">#{overallPlanFinalPct},</if>
+            <if test="overallPlanMaxProgressAmount != null">#{overallPlanMaxProgressAmount},</if>
+            <if test="overallPlanIssuedAmount != null">#{overallPlanIssuedAmount},</if>
+            <if test="checkerProgress != null">#{checkerProgress},</if>
+            <if test="checkerFinalPct != null">#{checkerFinalPct},</if>
+            <if test="checkerMaxProgressAmount != null">#{checkerMaxProgressAmount},</if>
+            <if test="checkerIssuedAmount != null">#{checkerIssuedAmount},</if>
+            <if test="reviewerProgress != null">#{reviewerProgress},</if>
+            <if test="reviewerFinalPct != null">#{reviewerFinalPct},</if>
+            <if test="reviewerMaxProgressAmount != null">#{reviewerMaxProgressAmount},</if>
+            <if test="reviewerIssuedAmount != null">#{reviewerIssuedAmount},</if>
+            <if test="pipeReviewProgress != null">#{pipeReviewProgress},</if>
+            <if test="pipeReviewFinalPct != null">#{pipeReviewFinalPct},</if>
+            <if test="pipeReviewMaxProgressAmount != null">#{pipeReviewMaxProgressAmount},</if>
+            <if test="pipeReviewIssuedAmount != null">#{pipeReviewIssuedAmount},</if>
+            <if test="approvalProgress != null">#{approvalProgress},</if>
+            <if test="approvalFinalPct != null">#{approvalFinalPct},</if>
+            <if test="approvalMaxProgressAmount != null">#{approvalMaxProgressAmount},</if>
+            <if test="approvalIssuedAmount != null">#{approvalIssuedAmount},</if>
+            <if test="designGuidanceProgress != null">#{designGuidanceProgress},</if>
+            <if test="designGuidanceFinalPct != null">#{designGuidanceFinalPct},</if>
+            <if test="designGuidanceMaxProgressAmount != null">#{designGuidanceMaxProgressAmount},</if>
+            <if test="designGuidanceIssuedAmount != null">#{designGuidanceIssuedAmount},</if>
+            <if test="consultantProgress != null">#{consultantProgress},</if>
+            <if test="consultantFinalPct != null">#{consultantFinalPct},</if>
+            <if test="consultantMaxProgressAmount != null">#{consultantMaxProgressAmount},</if>
+            <if test="consultantIssuedAmount != null">#{consultantIssuedAmount},</if>
+            <if test="procurementSupportProgress != null">#{procurementSupportProgress},</if>
+            <if test="procurementSupportFinalPct != null">#{procurementSupportFinalPct},</if>
+            <if test="procurementSupportMaxProgressAmount != null">#{procurementSupportMaxProgressAmount},</if>
+            <if test="procurementSupportIssuedAmount != null">#{procurementSupportIssuedAmount},</if>
+            <if test="design1MaxProgressAmount != null">#{design1MaxProgressAmount},</if>
+            <if test="design1IssuedAmount != null">#{design1IssuedAmount},</if>
+            <if test="design2MaxProgressAmount != null">#{design2MaxProgressAmount},</if>
+            <if test="design2IssuedAmount != null">#{design2IssuedAmount},</if>
+            <if test="design3MaxProgressAmount != null">#{design3MaxProgressAmount},</if>
+            <if test="design3IssuedAmount != null">#{design3IssuedAmount},</if>
+            <if test="design4MaxProgressAmount != null">#{design4MaxProgressAmount},</if>
+            <if test="design4IssuedAmount != null">#{design4IssuedAmount},</if>
+            <if test="design5MaxProgressAmount != null">#{design5MaxProgressAmount},</if>
+            <if test="design5IssuedAmount != null">#{design5IssuedAmount},</if>
+            <if test="design6MaxProgressAmount != null">#{design6MaxProgressAmount},</if>
+            <if test="design6IssuedAmount != null">#{design6IssuedAmount},</if>
+            <if test="design7MaxProgressAmount != null">#{design7MaxProgressAmount},</if>
+            <if test="design7IssuedAmount != null">#{design7IssuedAmount},</if>
+            <if test="design8MaxProgressAmount != null">#{design8MaxProgressAmount},</if>
+            <if test="design8IssuedAmount != null">#{design8IssuedAmount},</if>
+            <if test="design9MaxProgressAmount != null">#{design9MaxProgressAmount},</if>
+            <if test="design9IssuedAmount != null">#{design9IssuedAmount},</if>
+            <if test="design10MaxProgressAmount != null">#{design10MaxProgressAmount},</if>
+            <if test="design10IssuedAmount != null">#{design10IssuedAmount},</if>
+            <if test="design11MaxProgressAmount != null">#{design11MaxProgressAmount},</if>
+            <if test="design11IssuedAmount != null">#{design11IssuedAmount},</if>
+            <if test="design12MaxProgressAmount != null">#{design12MaxProgressAmount},</if>
+            <if test="design12IssuedAmount != null">#{design12IssuedAmount},</if>
+            <if test="design13MaxProgressAmount != null">#{design13MaxProgressAmount},</if>
+            <if test="design13IssuedAmount != null">#{design13IssuedAmount},</if>
+            <if test="design14MaxProgressAmount != null">#{design14MaxProgressAmount},</if>
+            <if test="design14IssuedAmount != null">#{design14IssuedAmount},</if>
+            <if test="design15MaxProgressAmount != null">#{design15MaxProgressAmount},</if>
+            <if test="design15IssuedAmount != null">#{design15IssuedAmount},</if>
+            <if test="design16MaxProgressAmount != null">#{design16MaxProgressAmount},</if>
+            <if test="design16IssuedAmount != null">#{design16IssuedAmount},</if>
+            <if test="design17MaxProgressAmount != null">#{design17MaxProgressAmount},</if>
+            <if test="design17IssuedAmount != null">#{design17IssuedAmount},</if>
+            <if test="design18MaxProgressAmount != null">#{design18MaxProgressAmount},</if>
+            <if test="design18IssuedAmount != null">#{design18IssuedAmount},</if>
+            <if test="design19MaxProgressAmount != null">#{design19MaxProgressAmount},</if>
+            <if test="design19IssuedAmount != null">#{design19IssuedAmount},</if>
+            <if test="design20MaxProgressAmount != null">#{design20MaxProgressAmount},</if>
+            <if test="design20IssuedAmount != null">#{design20IssuedAmount},</if>
+
+         </trim>
+    </insert>
+
+    <update id="updateProfessionalAllocationB" parameterType="ProfessionalAllocationB">
+        update tb_professional_allocation_b
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="headId != null">head_id = #{headId},</if>
+            <if test="prjId != null">prj_id = #{prjId},</if>
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="itemId != null">item_id = #{itemId},</if>
+            <if test="itemNo != null and itemNo != ''">item_no = #{itemNo},</if>
+            <if test="itemName != null and itemName != ''">item_name = #{itemName},</if>
+            <if test="itemWeight != null">item_weight = #{itemWeight},</if>
+            <if test="proResp != null">pro_resp = #{proResp},</if>
+            <if test="eim != null">eim = #{eim},</if>
+            <if test="overallPlan != null">overall_plan = #{overallPlan},</if>
+            <if test="checker != null">checker = #{checker},</if>
+            <if test="reviewer != null">reviewer = #{reviewer},</if>
+            <if test="pipeReview != null">pipe_review = #{pipeReview},</if>
+            <if test="approval != null">approval = #{approval},</if>
+            <if test="designGuidance != null">design_guidance = #{designGuidance},</if>
+            <if test="design1 != null">design1 = #{design1},</if>
+            <if test="design2 != null">design2 = #{design2},</if>
+            <if test="design3 != null">design3 = #{design3},</if>
+            <if test="design4 != null">design4 = #{design4},</if>
+            <if test="design5 != null">design5 = #{design5},</if>
+            <if test="design6 != null">design6 = #{design6},</if>
+            <if test="design7 != null">design7 = #{design7},</if>
+            <if test="design8 != null">design8 = #{design8},</if>
+            <if test="design9 != null">design9 = #{design9},</if>
+            <if test="design10 != null">design10 = #{design10},</if>
+            <if test="design11 != null">design11 = #{design11},</if>
+            <if test="design12 != null">design12 = #{design12},</if>
+            <if test="design13 != null">design13 = #{design13},</if>
+            <if test="design14 != null">design14 = #{design14},</if>
+            <if test="design15 != null">design15 = #{design15},</if>
+            <if test="design16 != null">design16 = #{design16},</if>
+            <if test="design17 != null">design17 = #{design17},</if>
+            <if test="design18 != null">design18 = #{design18},</if>
+            <if test="design19 != null">design19 = #{design19},</if>
+            <if test="design20 != null">design20 = #{design20},</if>
+            <if test="procurementSupport != null">procurement_support = #{procurementSupport},</if>
+            <if test="consultant != null">consultant = #{consultant},</if>
+            <if test="proRespPct != null">pro_resp_pct = #{proRespPct},</if>
+            <if test="eimPct != null">eim_pct = #{eimPct},</if>
+            <if test="overallPlanPct != null">overall_plan_pct = #{overallPlanPct},</if>
+            <if test="checkerPct != null">checker_pct = #{checkerPct},</if>
+            <if test="reviewerPct != null">reviewer_pct = #{reviewerPct},</if>
+            <if test="pipeReviewPct != null">pipe_review_pct = #{pipeReviewPct},</if>
+            <if test="approvalPct != null">approval_pct = #{approvalPct},</if>
+            <if test="designGuidancePct != null">design_guidance_pct = #{designGuidancePct},</if>
+            <if test="design1Pct != null">design1_pct = #{design1Pct},</if>
+            <if test="design2Pct != null">design2_pct = #{design2Pct},</if>
+            <if test="design3Pct != null">design3_pct = #{design3Pct},</if>
+            <if test="design4Pct != null">design4_pct = #{design4Pct},</if>
+            <if test="design5Pct != null">design5_pct = #{design5Pct},</if>
+            <if test="design6Pct != null">design6_pct = #{design6Pct},</if>
+            <if test="design7Pct != null">design7_pct = #{design7Pct},</if>
+            <if test="design8Pct != null">design8_pct = #{design8Pct},</if>
+            <if test="design9Pct != null">design9_pct = #{design9Pct},</if>
+            <if test="design10Pct != null">design10_pct = #{design10Pct},</if>
+            <if test="design11Pct != null">design11_pct = #{design11Pct},</if>
+            <if test="design12Pct != null">design12_pct = #{design12Pct},</if>
+            <if test="design13Pct != null">design13_pct = #{design13Pct},</if>
+            <if test="design14Pct != null">design14_pct = #{design14Pct},</if>
+            <if test="design15Pct != null">design15_pct = #{design15Pct},</if>
+            <if test="design16Pct != null">design16_pct = #{design16Pct},</if>
+            <if test="design17Pct != null">design17_pct = #{design17Pct},</if>
+            <if test="design18Pct != null">design18_pct = #{design18Pct},</if>
+            <if test="design19Pct != null">design19_pct = #{design19Pct},</if>
+            <if test="design20Pct != null">design20_pct = #{design20Pct},</if>
+            <if test="procurementSupportPct != null">procurement_support_pct = #{procurementSupportPct},</if>
+            <if test="consultantPct != null">consultant_pct = #{consultantPct},</if>
+            <if test="final1Pct != null">final1_pct = #{final1Pct},</if>
+            <if test="final2Pct != null">final2_pct = #{final2Pct},</if>
+            <if test="final3Pct != null">final3_pct = #{final3Pct},</if>
+            <if test="final4Pct != null">final4_pct = #{final4Pct},</if>
+            <if test="final5Pct != null">final5_pct = #{final5Pct},</if>
+            <if test="final6Pct != null">final6_pct = #{final6Pct},</if>
+            <if test="final7Pct != null">final7_pct = #{final7Pct},</if>
+            <if test="final8Pct != null">final8_pct = #{final8Pct},</if>
+            <if test="final9Pct != null">final9_pct = #{final9Pct},</if>
+            <if test="final10Pct != null">final10_pct = #{final10Pct},</if>
+            <if test="final11Pct != null">final11_pct = #{final11Pct},</if>
+            <if test="final12Pct != null">final12_pct = #{final12Pct},</if>
+            <if test="final13Pct != null">final13_pct = #{final13Pct},</if>
+            <if test="final14Pct != null">final14_pct = #{final14Pct},</if>
+            <if test="final15Pct != null">final15_pct = #{final15Pct},</if>
+            <if test="final16Pct != null">final16_pct = #{final16Pct},</if>
+            <if test="final17Pct != null">final17_pct = #{final17Pct},</if>
+            <if test="final18Pct != null">final18_pct = #{final18Pct},</if>
+            <if test="final19Pct != null">final19_pct = #{final19Pct},</if>
+            <if test="final20Pct != null">final20_pct = #{final20Pct},</if>
+            <if test="progress1 != null">progress1 = #{progress1},</if>
+            <if test="progress2 != null">progress2 = #{progress2},</if>
+            <if test="progress3 != null">progress3 = #{progress3},</if>
+            <if test="progress4 != null">progress4 = #{progress4},</if>
+            <if test="progress5 != null">progress5 = #{progress5},</if>
+            <if test="progress6 != null">progress6 = #{progress6},</if>
+            <if test="progress7 != null">progress7 = #{progress7},</if>
+            <if test="progress8 != null">progress8 = #{progress8},</if>
+            <if test="progress9 != null">progress9 = #{progress9},</if>
+            <if test="progress10 != null">progress10 = #{progress10},</if>
+            <if test="progress11 != null">progress11 = #{progress11},</if>
+            <if test="progress12 != null">progress12 = #{progress12},</if>
+            <if test="progress13 != null">progress13 = #{progress13},</if>
+            <if test="progress14 != null">progress14 = #{progress14},</if>
+            <if test="progress15 != null">progress15 = #{progress15},</if>
+            <if test="progress16 != null">progress16 = #{progress16},</if>
+            <if test="progress17 != null">progress17 = #{progress17},</if>
+            <if test="progress18 != null">progress18 = #{progress18},</if>
+            <if test="progress19 != null">progress19 = #{progress19},</if>
+            <if test="progress20 != null">progress20 = #{progress20},</if>
+            <if test="def1 != null">def1 = #{def1},</if>
+            <if test="def2 != null">def2 = #{def2},</if>
+            <if test="def3 != null">def3 = #{def3},</if>
+            <if test="def4 != null">def4 = #{def4},</if>
+            <if test="def5 != null">def5 = #{def5},</if>
+            <if test="def6 != null">def6 = #{def6},</if>
+            <if test="def7 != null">def7 = #{def7},</if>
+            <if test="def8 != null">def8 = #{def8},</if>
+            <if test="def9 != null">def9 = #{def9},</if>
+            <if test="def10 != null">def10 = #{def10},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <!-- 新增字段 -->
+            <if test="proRespProgress != null">proRespProgress = #{proRespProgress},</if>
+            <if test="proRespFinalPct != null">proRespFinalPct = #{proRespFinalPct},</if>
+            <if test="proRespMaxProgressAmount != null">proRespMaxProgressAmount = #{proRespMaxProgressAmount},</if>
+            <if test="proRespIssuedAmount != null">proRespIssuedAmount = #{proRespIssuedAmount},</if>
+            <if test="eimProgress != null">eimProgress = #{eimProgress},</if>
+            <if test="eimFinalPct != null">eimFinalPct = #{eimFinalPct},</if>
+            <if test="eimMaxProgressAmount != null">eimMaxProgressAmount = #{eimMaxProgressAmount},</if>
+            <if test="eimIssuedAmount != null">eimIssuedAmount = #{eimIssuedAmount},</if>
+            <if test="overallPlanProgress != null">overallPlanProgress = #{overallPlanProgress},</if>
+            <if test="overallPlanFinalPct != null">overallPlanFinalPct = #{overallPlanFinalPct},</if>
+            <if test="overallPlanMaxProgressAmount != null">overallPlanMaxProgressAmount = #{overallPlanMaxProgressAmount},</if>
+            <if test="overallPlanIssuedAmount != null">overallPlanIssuedAmount = #{overallPlanIssuedAmount},</if>
+            <if test="checkerProgress != null">checkerProgress = #{checkerProgress},</if>
+            <if test="checkerFinalPct != null">checkerFinalPct = #{checkerFinalPct},</if>
+            <if test="checkerMaxProgressAmount != null">checkerMaxProgressAmount = #{checkerMaxProgressAmount},</if>
+            <if test="checkerIssuedAmount != null">checkerIssuedAmount = #{checkerIssuedAmount},</if>
+            <if test="reviewerProgress != null">reviewerProgress = #{reviewerProgress},</if>
+            <if test="reviewerFinalPct != null">reviewerFinalPct = #{reviewerFinalPct},</if>
+            <if test="reviewerMaxProgressAmount != null">reviewerMaxProgressAmount = #{reviewerMaxProgressAmount},</if>
+            <if test="reviewerIssuedAmount != null">reviewerIssuedAmount = #{reviewerIssuedAmount},</if>
+            <if test="pipeReviewProgress != null">pipeReviewProgress = #{pipeReviewProgress},</if>
+            <if test="pipeReviewFinalPct != null">pipeReviewFinalPct = #{pipeReviewFinalPct},</if>
+            <if test="pipeReviewMaxProgressAmount != null">pipeReviewMaxProgressAmount = #{pipeReviewMaxProgressAmount},</if>
+            <if test="pipeReviewIssuedAmount != null">pipeReviewIssuedAmount = #{pipeReviewIssuedAmount},</if>
+            <if test="approvalProgress != null">approvalProgress = #{approvalProgress},</if>
+            <if test="approvalFinalPct != null">approvalFinalPct = #{approvalFinalPct},</if>
+            <if test="approvalMaxProgressAmount != null">approvalMaxProgressAmount = #{approvalMaxProgressAmount},</if>
+            <if test="approvalIssuedAmount != null">approvalIssuedAmount = #{approvalIssuedAmount},</if>
+            <if test="designGuidanceProgress != null">designGuidanceProgress = #{designGuidanceProgress},</if>
+            <if test="designGuidanceFinalPct != null">designGuidanceFinalPct = #{designGuidanceFinalPct},</if>
+            <if test="designGuidanceMaxProgressAmount != null">designGuidanceMaxProgressAmount = #{designGuidanceMaxProgressAmount},</if>
+            <if test="designGuidanceIssuedAmount != null">designGuidanceIssuedAmount = #{designGuidanceIssuedAmount},</if>
+            <if test="consultantProgress != null">consultantProgress = #{consultantProgress},</if>
+            <if test="consultantFinalPct != null">consultantFinalPct = #{consultantFinalPct},</if>
+            <if test="consultantMaxProgressAmount != null">consultantMaxProgressAmount = #{consultantMaxProgressAmount},</if>
+            <if test="consultantIssuedAmount != null">consultantIssuedAmount = #{consultantIssuedAmount},</if>
+            <if test="procurementSupportProgress != null">procurementSupportProgress = #{procurementSupportProgress},</if>
+            <if test="procurementSupportFinalPct != null">procurementSupportFinalPct = #{procurementSupportFinalPct},</if>
+            <if test="procurementSupportMaxProgressAmount != null">procurementSupportMaxProgressAmount = #{procurementSupportMaxProgressAmount},</if>
+            <if test="procurementSupportIssuedAmount != null">procurementSupportIssuedAmount = #{procurementSupportIssuedAmount},</if>
+            <if test="design1MaxProgressAmount != null">design1MaxProgressAmount = #{design1MaxProgressAmount},</if>
+            <if test="design1IssuedAmount != null">design1IssuedAmount = #{design1IssuedAmount},</if>
+            <if test="design2MaxProgressAmount != null">design2MaxProgressAmount = #{design2MaxProgressAmount},</if>
+            <if test="design2IssuedAmount != null">design2IssuedAmount = #{design2IssuedAmount},</if>
+            <if test="design3MaxProgressAmount != null">design3MaxProgressAmount = #{design3MaxProgressAmount},</if>
+            <if test="design3IssuedAmount != null">design3IssuedAmount = #{design3IssuedAmount},</if>
+            <if test="design4MaxProgressAmount != null">design4MaxProgressAmount = #{design4MaxProgressAmount},</if>
+            <if test="design4IssuedAmount != null">design4IssuedAmount = #{design4IssuedAmount},</if>
+            <if test="design5MaxProgressAmount != null">design5MaxProgressAmount = #{design5MaxProgressAmount},</if>
+            <if test="design5IssuedAmount != null">design5IssuedAmount = #{design5IssuedAmount},</if>
+            <if test="design6MaxProgressAmount != null">design6MaxProgressAmount = #{design6MaxProgressAmount},</if>
+            <if test="design6IssuedAmount != null">design6IssuedAmount = #{design6IssuedAmount},</if>
+            <if test="design7MaxProgressAmount != null">design7MaxProgressAmount = #{design7MaxProgressAmount},</if>
+            <if test="design7IssuedAmount != null">design7IssuedAmount = #{design7IssuedAmount},</if>
+            <if test="design8MaxProgressAmount != null">design8MaxProgressAmount = #{design8MaxProgressAmount},</if>
+            <if test="design8IssuedAmount != null">design8IssuedAmount = #{design8IssuedAmount},</if>
+            <if test="design9MaxProgressAmount != null">design9MaxProgressAmount = #{design9MaxProgressAmount},</if>
+            <if test="design9IssuedAmount != null">design9IssuedAmount = #{design9IssuedAmount},</if>
+            <if test="design10MaxProgressAmount != null">design10MaxProgressAmount = #{design10MaxProgressAmount},</if>
+            <if test="design10IssuedAmount != null">design10IssuedAmount = #{design10IssuedAmount},</if>
+            <if test="design11MaxProgressAmount != null">design11MaxProgressAmount = #{design11MaxProgressAmount},</if>
+            <if test="design11IssuedAmount != null">design11IssuedAmount = #{design11IssuedAmount},</if>
+            <if test="design12MaxProgressAmount != null">design12MaxProgressAmount = #{design12MaxProgressAmount},</if>
+            <if test="design12IssuedAmount != null">design12IssuedAmount = #{design12IssuedAmount},</if>
+            <if test="design13MaxProgressAmount != null">design13MaxProgressAmount = #{design13MaxProgressAmount},</if>
+            <if test="design13IssuedAmount != null">design13IssuedAmount = #{design13IssuedAmount},</if>
+            <if test="design14MaxProgressAmount != null">design14MaxProgressAmount = #{design14MaxProgressAmount},</if>
+            <if test="design14IssuedAmount != null">design14IssuedAmount = #{design14IssuedAmount},</if>
+            <if test="design15MaxProgressAmount != null">design15MaxProgressAmount = #{design15MaxProgressAmount},</if>
+            <if test="design15IssuedAmount != null">design15IssuedAmount = #{design15IssuedAmount},</if>
+            <if test="design16MaxProgressAmount != null">design16MaxProgressAmount = #{design16MaxProgressAmount},</if>
+            <if test="design16IssuedAmount != null">design16IssuedAmount = #{design16IssuedAmount},</if>
+            <if test="design17MaxProgressAmount != null">design17MaxProgressAmount = #{design17MaxProgressAmount},</if>
+            <if test="design17IssuedAmount != null">design17IssuedAmount = #{design17IssuedAmount},</if>
+            <if test="design18MaxProgressAmount != null">design18MaxProgressAmount = #{design18MaxProgressAmount},</if>
+            <if test="design18IssuedAmount != null">design18IssuedAmount = #{design18IssuedAmount},</if>
+            <if test="design19MaxProgressAmount != null">design19MaxProgressAmount = #{design19MaxProgressAmount},</if>
+            <if test="design19IssuedAmount != null">design19IssuedAmount = #{design19IssuedAmount},</if>
+            <if test="design20MaxProgressAmount != null">design20MaxProgressAmount = #{design20MaxProgressAmount},</if>
+            <if test="design20IssuedAmount != null">design20IssuedAmount = #{design20IssuedAmount},</if>
+
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProfessionalAllocationBById" parameterType="Long">
+        delete from tb_professional_allocation_b where id = #{id}
+    </delete>
+
+    <delete id="deleteProfessionalAllocationBByIds" parameterType="String">
+        delete from tb_professional_allocation_b where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <select id="selectBody" parameterType="ProfessionalAllocationB" resultMap="ProfessionalAllocationBResult">
+        select * from tb_professional_allocation_b tpab
+        left join tb_professional_allocation tpa on tpab.head_id = tpa.id where tpa.prj_id = #{prjId}
+    </select>
+
+
+    <select id="selectProRespNames" resultType="string">
+        SELECT u.nick_name
+        FROM sys_user u
+
+    </select>
+    <select id="sumFinalPctByHeadId" resultType="java.math.BigDecimal">
+        SELECT
+            SUM(
+                    final1_pct + final2_pct + final3_pct + final4_pct + final5_pct + final6_pct + final7_pct +
+                    final8_pct + final9_pct + final10_pct + final11_pct + final12_pct + final13_pct + final14_pct +
+                    final15_pct + final16_pct + final17_pct + final18_pct + final19_pct + final20_pct +
+                    proRespFinalPct + eimFinalPct + overallPlanFinalPct + checkerFinalPct + reviewerFinalPct +
+                    pipeReviewFinalPct + approvalFinalPct + designGuidanceFinalPct + consultantFinalPct +
+                    procurementSupportFinalPct
+            )
+        FROM tb_professional_allocation_b
+        WHERE head_id = #{headId}
+    </select>
+
+    <select id="selectAssignedProjectItemsByHeadId" resultMap="ProfessionalAllocationBResult">
+        SELECT id,prj_id,project_name,head_id,item_no,item_name
+        FROM tb_professional_allocation_b
+        WHERE prj_id = #{headId} AND head_id IS NULL
+
+    </select>
+
+    <update id="updateHeadIdByPrjId">
+        UPDATE tb_professional_allocation_b
+        SET head_id = #{headId}
+        WHERE prj_id = #{prjId}
+          AND id = #{id}
+          AND head_id IS NULL
+    </update>
+
+    <update id="batchUpdateHeadIdByPrjId">
+        UPDATE tb_professional_allocation_b
+        SET head_id = #{headId}
+        WHERE prj_id = #{prjId}
+        AND head_id IS NULL
+        AND id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <select id="getProjectItemsByPrjId" parameterType="map" resultMap="ProfessionalAllocationBResult">
+        SELECT
+        b.*
+        FROM tb_professional_allocation_b b
+        WHERE b.prj_id = #{prjId} and b.id = #{itemId}
+    </select>
+
+</mapper>
